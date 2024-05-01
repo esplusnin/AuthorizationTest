@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 
 final class ApplicationUtility {
     static var rootViewController: UIViewController {

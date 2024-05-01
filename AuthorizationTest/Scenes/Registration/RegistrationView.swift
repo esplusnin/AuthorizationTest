@@ -1,17 +1,12 @@
 import SwiftUI
 import GoogleSignIn
 
-struct RegistrationView: View {
+struct RegistrationView<ViewModel>: View where ViewModel: RegistrationViewModelProtocol {
     
-    @State var username = ""
-    @State var password = ""
-    @State var repeatedPassword = ""
+    // MARK: - Dependencies:
+    @ObservedObject var viewModel: ViewModel
     
-    @State var isLoginValidated = false
-    @State var isPasswordLengthValidated = false
-    @State var isPasswordCapitalLetterValidated = false
-    @State var isPasswordRepeated = false
-    
+    // MARK: - UI:
     var body: some View {
         ZStack {
             LinearGradient.backgroundGradient
@@ -23,27 +18,42 @@ struct RegistrationView: View {
                     .foregroundStyle(.white)
                 
                 VStack(spacing: 10) {
-                    InputTextField(inputText: $username, state: .username)
-                    ClueTextView(state: .username, isValid: isLoginValidated)
+                    InputTextField(inputText: $viewModel.username, state: .username)
+                    ClueTextView(state: .username, isValid: viewModel.isLoginValidated)
                 }
                 
                 VStack(spacing: 10) {
-                    InputTextField(inputText: $password, state: .password)
+                    InputTextField(inputText: $viewModel.password, state: .password)
                     ClueTextView(state: .passwordLength,
-                                 isValid: isPasswordLengthValidated)
+                                 isValid: viewModel.isPasswordLengthValidated)
                     ClueTextView(state: .uppercasedLetter,
-                                 isValid: isPasswordCapitalLetterValidated)
+                                 isValid: viewModel.isPasswordCapitalLetterValidated)
                 }
                 
                 VStack(spacing: 10) {
-                    InputTextField(inputText: $repeatedPassword, state: .repeatedPassword)
+                    InputTextField(inputText: $viewModel.repeatedPassword, state: .repeatedPassword)
                     ClueTextView(state: .repeatedPassword,
-                                 isValid: isPasswordRepeated)
+                                 isValid: viewModel.isPasswordRepeated)
                 }
-                
-                BaseButtonView(action: {})
                 
                 Spacer()
+                
+                VStack(spacing: 20) {
+                    BaseButtonView(action: {})
+                    GoogleSignInButton { viewModel.signInWithGoogle() }
+                    
+                    HStack {
+                        Text("Уже зарегистрированы?")
+                        
+                        Button {
+                            
+                        } label: {
+                            Text("Войти")
+                                .bold()
+                        }
+                    }
+                }
+                .padding(.bottom, 100)
             }
             .padding()
         }
@@ -51,5 +61,5 @@ struct RegistrationView: View {
 }
 
 #Preview {
-    RegistrationView()
+    RegistrationView(viewModel: RegistrationViewModel())
 }
