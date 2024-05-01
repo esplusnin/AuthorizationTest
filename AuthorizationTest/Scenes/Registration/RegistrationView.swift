@@ -1,6 +1,7 @@
 import SwiftUI
+import GoogleSignIn
 
-struct AuthorizationView: View {
+struct RegistrationView: View {
     
     @State var username = ""
     @State var password = ""
@@ -41,6 +42,7 @@ struct AuthorizationView: View {
                 }
                 
                 BaseButtonView(action: {})
+                
                 Spacer()
             }
             .padding()
@@ -49,5 +51,5 @@ struct AuthorizationView: View {
 }
 
 #Preview {
-    AuthorizationView()
+    RegistrationView()
 }
