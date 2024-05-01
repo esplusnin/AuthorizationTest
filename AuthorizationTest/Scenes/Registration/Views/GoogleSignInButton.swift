@@ -13,17 +13,19 @@ struct GoogleSignInButton: View {
             HStack {
                 Image(.googleLogo)
                     .resizable()
-                    .frame(width: 30, height: 30)
+                    .frame(width: UIConstants.GoogleSignInButton.imageSide,
+                           height: UIConstants.GoogleSignInButton.imageSide)
                 
-                Text("Войти с помощью Google")
+                Text(Strings.Registration.signInWithGoogle)
                     .background(.universalWhite)
                     .foregroundStyle(.universalBlack)
             }
-            .frame(maxWidth: .infinity, maxHeight: 60)
+            .frame(maxWidth: .infinity,
+                   maxHeight: UIConstants.GoogleSignInButton.height)
             .background(
-                RoundedRectangle(cornerRadius: 10)
+                RoundedRectangle(cornerRadius: UIConstants.GoogleSignInButton.cornerRadius)
                     .fill(.universalWhite)
-                    .shadow(radius: 3)
+                    .shadow(radius: UIConstants.GoogleSignInButton.shadowRadius)
             )
         }
     }

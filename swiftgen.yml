@@ -1,0 +1,8 @@
+ strings:
+   inputs:
+     - AuthorizationTest/Resources/Localized/ru.lproj
+   outputs:
+     - templateName: structured-swift5
+       output: AuthorizationTest/Resources/Localized/Strings+Generated.swift
+       params:
+         enumName: Strings

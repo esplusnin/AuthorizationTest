@@ -3,16 +3,16 @@ import SwiftUI
 enum TextFieldState {
     case username
     case password
-    case repeatedPassword
+    case confirmedPassword
     
     var promptText: String {
         return switch self {
         case .username:
-            "Введите имя пользователя"
+            Strings.Registration.username
         case .password:
-            "Введите пароль"
-        case .repeatedPassword:
-            "Повторите пароль"
+            Strings.Registration.password
+        case .confirmedPassword:
+            Strings.Registration.confirmPassword
         }
     }
 }

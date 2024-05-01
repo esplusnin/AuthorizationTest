@@ -12,17 +12,17 @@ struct RegistrationView<ViewModel>: View where ViewModel: RegistrationViewModelP
             LinearGradient.backgroundGradient
                 .ignoresSafeArea()
             
-            VStack(spacing: 30) {
-                Text("Регистрация")
-                    .font(.system(size: 36, weight: .bold, design: .rounded))
+            VStack(spacing: UIConstants.RegistrationView.largeVStackSpacing) {
+                Text(Strings.Registration.title)
+                    .font(.extraLargeBoldFont)
                     .foregroundStyle(.white)
                 
-                VStack(spacing: 10) {
+                VStack(spacing: UIConstants.RegistrationView.smallVStackSpacing) {
                     InputTextField(inputText: $viewModel.username, state: .username)
                     ClueTextView(state: .username, isValid: viewModel.isLoginValidated)
                 }
                 
-                VStack(spacing: 10) {
+                VStack(spacing: UIConstants.RegistrationView.smallVStackSpacing) {
                     InputTextField(inputText: $viewModel.password, state: .password)
                     ClueTextView(state: .passwordLength,
                                  isValid: viewModel.isPasswordLengthValidated)
@@ -30,30 +30,30 @@ struct RegistrationView<ViewModel>: View where ViewModel: RegistrationViewModelP
                                  isValid: viewModel.isPasswordCapitalLetterValidated)
                 }
                 
-                VStack(spacing: 10) {
-                    InputTextField(inputText: $viewModel.repeatedPassword, state: .repeatedPassword)
-                    ClueTextView(state: .repeatedPassword,
+                VStack(spacing: UIConstants.RegistrationView.smallVStackSpacing) {
+                    InputTextField(inputText: $viewModel.repeatedPassword, state: .confirmedPassword)
+                    ClueTextView(state: .confirmedPassword,
                                  isValid: viewModel.isPasswordRepeated)
                 }
                 
                 Spacer()
                 
-                VStack(spacing: 20) {
+                VStack(spacing: UIConstants.RegistrationView.mediumVStackSpacing) {
                     BaseButtonView(action: {})
                     GoogleSignInButton { viewModel.signInWithGoogle() }
                     
                     HStack {
-                        Text("Уже зарегистрированы?")
-                        
+                        Text(Strings.Registration.hasAccount)
+                            .bold()
                         Button {
                             
                         } label: {
-                            Text("Войти")
+                            Text(Strings.Registration.singIn)
                                 .bold()
                         }
                     }
                 }
-                .padding(.bottom, 100)
+                .padding(.bottom, UIConstants.RegistrationView.bottomPadding)
             }
             .padding()
         }

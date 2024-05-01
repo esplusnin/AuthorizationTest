@@ -1,0 +1,12 @@
+"registration.title" = "Create an account";
+"registration.username" = "Enter username";
+"registration.password" = "Enter password";
+"registration.confirmPassword" = "Confirm password";
+"registration.prompt.username" = "A minimum of 4 charapters";
+"registration.prompt.passwordLength" = "A minimum of 8 charapters";
+"registration.prompt.uppercasedLetter" = "One uppercased letter";
+"registration.prompt.confirmedPassword" = "Confirmed password must be the same as password";
+"registration.createAccount" = "Sign up";
+"registration.signInWithGoogle" = "Sign in with Google";
+"registration.hasAccount" = "Already have an account?";
+"registration.singIn" = "Sign in";

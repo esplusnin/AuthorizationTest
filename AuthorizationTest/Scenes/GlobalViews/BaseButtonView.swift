@@ -11,12 +11,13 @@ struct BaseButtonView: View {
             action()
         } label: {
             Text("Создать новый аккаунт")
-                .frame(maxWidth: .infinity, maxHeight: 60)
+                .frame(maxWidth: .infinity,
+                       maxHeight: UIConstants.BaseButtonView.height)
                 .foregroundStyle(.white)
                 .background(
-                    RoundedRectangle(cornerRadius: 10)
+                    RoundedRectangle(cornerRadius: UIConstants.BaseButtonView.cornerRadius)
                         .fill(.universalBlue)
-                        .shadow(radius: 3)
+                        .shadow(radius: UIConstants.BaseButtonView.shadowRadius)
                 )
         }
     }

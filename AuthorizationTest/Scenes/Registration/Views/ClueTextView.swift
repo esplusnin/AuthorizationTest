@@ -4,18 +4,18 @@ enum ClueTextViewState: Equatable {
     case username
     case passwordLength
     case uppercasedLetter
-    case repeatedPassword
+    case confirmedPassword
     
     var promptText: String {
         return switch self {
         case .username:
-            "Необходимо как минимум 4 символа"
+            Strings.Registration.Prompt.username
         case .passwordLength:
-            "Необходимо как минимум 8 символов"
+            Strings.Registration.Prompt.passwordLength
         case .uppercasedLetter:
-            "Один из символов должен быть заглавным"
-        case .repeatedPassword:
-            "Пароли должны совпадать"
+            Strings.Registration.Prompt.uppercasedLetter
+        case .confirmedPassword:
+            Strings.Registration.Prompt.confirmedPassword
         }
     }
 }
@@ -32,22 +32,25 @@ struct ClueTextView: View {
         HStack {
             if state == .username {
                 Rectangle()
-                    .stroke(.blue, lineWidth: 2)
-                    .frame(width: 15, height: 15)
-                    .clipShape(RoundedRectangle(cornerRadius: 2))
+                    .stroke(.blue, lineWidth: UIConstants.ClueTextView.strokeLineWidth)
+                    .frame(width: UIConstants.ClueTextView.imageSide,
+                           height: UIConstants.ClueTextView.imageSide)
+                    .clipShape(RoundedRectangle(cornerRadius: UIConstants.ClueTextView.cornerRadius))
                     .overlay {
                         if isValid {
-                            Image(systemName: "multiply")
+                            Image(systemName: Resources.Images.multiply)
                                 .foregroundStyle(.blue)
                         }
                     }
             } else {
-                Image(systemName: isValid ? "lock.open" : "lock")                    .frame(width: 15, height: 15)
+                Image(systemName: isValid ? Resources.Images.lockOpen : Resources.Images.lockClosed)                   
+                    .frame(width: UIConstants.ClueTextView.imageSide,
+                           height: UIConstants.ClueTextView.imageSide)
                     .foregroundStyle(.blue)
             }
             
             Text(state.promptText)
-                .font(.system(size: 14))
+                .font(.regularMediumFont)
                 .foregroundStyle(.gray)
                 .strikethrough(isValid)
             

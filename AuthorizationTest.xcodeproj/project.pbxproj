@@ -26,6 +26,10 @@
 		7E22223A2BE26F7000D27EBD /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 7E2222392BE26F7000D27EBD /* FirebaseDatabase */; };
 		7E22223C2BE2724C00D27EBD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7E22223B2BE2724C00D27EBD /* GoogleService-Info.plist */; };
 		7E22223E2BE2763E00D27EBD /* GoogleSignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E22223D2BE2763E00D27EBD /* GoogleSignInButton.swift */; };
+		7E2222422BE27E7C00D27EBD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7E2222442BE27E7C00D27EBD /* Localizable.strings */; };
+		7E2222482BE27F3100D27EBD /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2222472BE27F3100D27EBD /* Strings+Generated.swift */; };
+		7E22224A2BE2A7B700D27EBD /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2222492BE2A7B700D27EBD /* Resources.swift */; };
+		7E22224C2BE2A84500D27EBD /* Font + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E22224B2BE2A84500D27EBD /* Font + Extension.swift */; };
 		7E4919EE2BE22FEB00829B61 /* AuthorizationTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4919ED2BE22FEB00829B61 /* AuthorizationTestApp.swift */; };
 		7E4919F22BE22FED00829B61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E4919F12BE22FED00829B61 /* Assets.xcassets */; };
 		7E4919F52BE22FED00829B61 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E4919F42BE22FED00829B61 /* Preview Assets.xcassets */; };
@@ -45,6 +49,11 @@
 		7E2222242BE26B0200D27EBD /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
 		7E22223B2BE2724C00D27EBD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7E22223D2BE2763E00D27EBD /* GoogleSignInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInButton.swift; sourceTree = "<group>"; };
+		7E2222432BE27E7C00D27EBD /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7E2222452BE27E7E00D27EBD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7E2222472BE27F3100D27EBD /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Generated.swift"; sourceTree = "<group>"; };
+		7E2222492BE2A7B700D27EBD /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
+		7E22224B2BE2A84500D27EBD /* Font + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font + Extension.swift"; sourceTree = "<group>"; };
 		7E4919EA2BE22FEB00829B61 /* AuthorizationTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AuthorizationTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E4919ED2BE22FEB00829B61 /* AuthorizationTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationTestApp.swift; sourceTree = "<group>"; };
 		7E4919F12BE22FED00829B61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -101,10 +110,21 @@
 		7E2222232BE26AF900D27EBD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7E22223F2BE27E6000D27EBD /* Localized */,
 				7E4919F12BE22FED00829B61 /* Assets.xcassets */,
 				7E2222242BE26B0200D27EBD /* UIConstants.swift */,
+				7E2222492BE2A7B700D27EBD /* Resources.swift */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		7E22223F2BE27E6000D27EBD /* Localized */ = {
+			isa = PBXGroup;
+			children = (
+				7E2222472BE27F3100D27EBD /* Strings+Generated.swift */,
+				7E2222442BE27E7C00D27EBD /* Localizable.strings */,
+			);
+			path = Localized;
 			sourceTree = "<group>";
 		};
 		7E4919E12BE22FEB00829B61 = {
@@ -168,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				7E491A012BE231F600829B61 /* Gradient + Extension.swift */,
+				7E22224B2BE2A84500D27EBD /* Font + Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -213,6 +234,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7E4919F82BE22FED00829B61 /* Build configuration list for PBXNativeTarget "AuthorizationTest" */;
 			buildPhases = (
+				7E2222462BE27F0200D27EBD /* SwiftGen */,
 				7E4919E62BE22FEB00829B61 /* Sources */,
 				7E4919E72BE22FEB00829B61 /* Frameworks */,
 				7E4919E82BE22FEB00829B61 /* Resources */,
@@ -257,11 +279,11 @@
 			};
 			buildConfigurationList = 7E4919E52BE22FEB00829B61 /* Build configuration list for PBXProject "AuthorizationTest" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
+			developmentRegion = ru;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
+				ru,
 			);
 			mainGroup = 7E4919E12BE22FEB00829B61;
 			packageReferences = (
@@ -283,12 +305,35 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E4919F52BE22FED00829B61 /* Preview Assets.xcassets in Resources */,
+				7E2222422BE27E7C00D27EBD /* Localizable.strings in Resources */,
 				7E4919F22BE22FED00829B61 /* Assets.xcassets in Resources */,
 				7E22223C2BE2724C00D27EBD /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7E2222462BE27F0200D27EBD /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftGen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which swiftgen; then\n    swiftgen\nelse\n  echo \"warning: SwiftGen is not installed\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7E4919E62BE22FEB00829B61 /* Sources */ = {
@@ -304,13 +349,28 @@
 				7E2222082BE2543100D27EBD /* AppDelegate.swift in Sources */,
 				7E4919FE2BE2300E00829B61 /* RegistrationView.swift in Sources */,
 				7E2222222BE268CB00D27EBD /* RegistrationViewModelProtocol.swift in Sources */,
+				7E22224A2BE2A7B700D27EBD /* Resources.swift in Sources */,
 				7E2222252BE26B0200D27EBD /* UIConstants.swift in Sources */,
+				7E2222482BE27F3100D27EBD /* Strings+Generated.swift in Sources */,
 				7E22221D2BE2677000D27EBD /* SignInApplication.swift in Sources */,
+				7E22224C2BE2A84500D27EBD /* Font + Extension.swift in Sources */,
 				7E491A022BE231F600829B61 /* Gradient + Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		7E2222442BE27E7C00D27EBD /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7E2222432BE27E7C00D27EBD /* ru */,
+				7E2222452BE27E7E00D27EBD /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		7E4919F62BE22FED00829B61 /* Debug */ = {
@@ -350,7 +410,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -413,7 +473,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
