@@ -4,7 +4,9 @@ import Foundation
 final class RegistrationViewModel: RegistrationViewModelProtocol {
     
     // MARK: - Dependencies:
-    private let authorizationService: AuthorizationServiceProtocol
+    weak var router: MainRouter?
+    
+    private(set) var authorizationService: AuthorizationServiceProtocol
     
     // MARK: - Publishers:
     @Published var email = ""
@@ -15,6 +17,7 @@ final class RegistrationViewModel: RegistrationViewModelProtocol {
     @Published var isPasswordCapitalLetterValidated = false
     @Published var isPasswordConfirmed = false
     @Published var isReadyToCreateAccount = false
+    @Published var isLoading = false
     
     // MARK: - Constatns and Variables:
     private var cancellable = Set<AnyCancellable>()
@@ -29,22 +32,37 @@ final class RegistrationViewModel: RegistrationViewModelProtocol {
     
     // MARK: - Public Methods:
     func createNewAccount() async {
+        await changeIsLoadingState()
+
         do {
-            let user = try await authorizationService.createNewAccount(with: email, and: password)
+            let _ = try await authorizationService.createNewAccount(with: email, and: password)
+            await router?.goTo(.imageEditor)
         } catch {
             print(error.localizedDescription)
         }
+        
+        await changeIsLoadingState()
     }
     
     func signInWithGoogle() async {
+        await changeIsLoadingState()
+
         do {
-            let isAuthorizationSuccesful = try await authorizationService.signInWithGoogle()
+            let _ = try await authorizationService.signInWithGoogle()
+            await router?.goTo(.imageEditor)
         } catch {
             print(error.localizedDescription)
         }
+        
+        await changeIsLoadingState()
     }
     
     // MARK: - Private Methods:
+    @MainActor
+    private func changeIsLoadingState() {
+        isLoading.toggle()
+    }
+    
     private func setupEmailValidationObserver() {
         $email
             .receive(on: RunLoop.main)

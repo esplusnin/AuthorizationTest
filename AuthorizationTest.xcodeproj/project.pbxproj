@@ -33,6 +33,16 @@
 		7E3E9E362BE2B51C003BE33E /* AuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3E9E352BE2B51C003BE33E /* AuthorizationService.swift */; };
 		7E3E9E392BE2B54F003BE33E /* AuthorizationServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3E9E382BE2B54F003BE33E /* AuthorizationServiceProtocol.swift */; };
 		7E3E9E3C2BE36C71003BE33E /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3E9E3B2BE36C71003BE33E /* UserDTO.swift */; };
+		7E3E9E3F2BE373AC003BE33E /* AuthorizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3E9E3E2BE373AC003BE33E /* AuthorizationView.swift */; };
+		7E3E9E412BE373DB003BE33E /* AuthorizationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3E9E402BE373DB003BE33E /* AuthorizationViewModel.swift */; };
+		7E3E9E442BE37CCF003BE33E /* ClearButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3E9E432BE37CCF003BE33E /* ClearButtonModifier.swift */; };
+		7E3E9E472BE38258003BE33E /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3E9E462BE38258003BE33E /* MainRouter.swift */; };
+		7E3E9E4A2BE38D26003BE33E /* ImageEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3E9E492BE38D26003BE33E /* ImageEditorView.swift */; };
+		7E3E9E502BE39BD9003BE33E /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3E9E4F2BE39BD9003BE33E /* LoaderView.swift */; };
+		7E3E9E532BE3A7A5003BE33E /* AuthorizationViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3E9E522BE3A7A5003BE33E /* AuthorizationViewModelProtocol.swift */; };
+		7E3E9E572BE3AD4F003BE33E /* PasswordResetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3E9E562BE3AD4F003BE33E /* PasswordResetView.swift */; };
+		7E3E9E592BE3AE06003BE33E /* PasswordResetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3E9E582BE3AE06003BE33E /* PasswordResetViewModel.swift */; };
+		7E3E9E5E2BE3AE47003BE33E /* PasswordResetViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3E9E5D2BE3AE47003BE33E /* PasswordResetViewModelProtocol.swift */; };
 		7E4919EE2BE22FEB00829B61 /* AuthorizationTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4919ED2BE22FEB00829B61 /* AuthorizationTestApp.swift */; };
 		7E4919F22BE22FED00829B61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E4919F12BE22FED00829B61 /* Assets.xcassets */; };
 		7E4919F52BE22FED00829B61 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E4919F42BE22FED00829B61 /* Preview Assets.xcassets */; };
@@ -59,6 +69,16 @@
 		7E3E9E352BE2B51C003BE33E /* AuthorizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationService.swift; sourceTree = "<group>"; };
 		7E3E9E382BE2B54F003BE33E /* AuthorizationServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceProtocol.swift; sourceTree = "<group>"; };
 		7E3E9E3B2BE36C71003BE33E /* UserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
+		7E3E9E3E2BE373AC003BE33E /* AuthorizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationView.swift; sourceTree = "<group>"; };
+		7E3E9E402BE373DB003BE33E /* AuthorizationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewModel.swift; sourceTree = "<group>"; };
+		7E3E9E432BE37CCF003BE33E /* ClearButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearButtonModifier.swift; sourceTree = "<group>"; };
+		7E3E9E462BE38258003BE33E /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
+		7E3E9E492BE38D26003BE33E /* ImageEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEditorView.swift; sourceTree = "<group>"; };
+		7E3E9E4F2BE39BD9003BE33E /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
+		7E3E9E522BE3A7A5003BE33E /* AuthorizationViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewModelProtocol.swift; sourceTree = "<group>"; };
+		7E3E9E562BE3AD4F003BE33E /* PasswordResetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetView.swift; sourceTree = "<group>"; };
+		7E3E9E582BE3AE06003BE33E /* PasswordResetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetViewModel.swift; sourceTree = "<group>"; };
+		7E3E9E5D2BE3AE47003BE33E /* PasswordResetViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetViewModelProtocol.swift; sourceTree = "<group>"; };
 		7E4919EA2BE22FEB00829B61 /* AuthorizationTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AuthorizationTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E4919ED2BE22FEB00829B61 /* AuthorizationTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationTestApp.swift; sourceTree = "<group>"; };
 		7E4919F12BE22FED00829B61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -125,8 +145,8 @@
 		7E22223F2BE27E6000D27EBD /* Localized */ = {
 			isa = PBXGroup;
 			children = (
-				7E2222472BE27F3100D27EBD /* Strings+Generated.swift */,
 				7E2222442BE27E7C00D27EBD /* Localizable.strings */,
+				7E2222472BE27F3100D27EBD /* Strings+Generated.swift */,
 			);
 			path = Localized;
 			sourceTree = "<group>";
@@ -145,6 +165,66 @@
 				7E3E9E3B2BE36C71003BE33E /* UserDTO.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		7E3E9E3D2BE37394003BE33E /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				7E3E9E512BE3A79A003BE33E /* Protocols */,
+				7E3E9E3E2BE373AC003BE33E /* AuthorizationView.swift */,
+				7E3E9E402BE373DB003BE33E /* AuthorizationViewModel.swift */,
+			);
+			path = Authorization;
+			sourceTree = "<group>";
+		};
+		7E3E9E422BE37CB9003BE33E /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				7E3E9E432BE37CCF003BE33E /* ClearButtonModifier.swift */,
+			);
+			path = Modifiers;
+			sourceTree = "<group>";
+		};
+		7E3E9E452BE3824F003BE33E /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				7E3E9E462BE38258003BE33E /* MainRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		7E3E9E482BE38D17003BE33E /* ImageEditor */ = {
+			isa = PBXGroup;
+			children = (
+				7E3E9E492BE38D26003BE33E /* ImageEditorView.swift */,
+			);
+			path = ImageEditor;
+			sourceTree = "<group>";
+		};
+		7E3E9E512BE3A79A003BE33E /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				7E3E9E522BE3A7A5003BE33E /* AuthorizationViewModelProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		7E3E9E552BE3AD30003BE33E /* PasswordResetView */ = {
+			isa = PBXGroup;
+			children = (
+				7E3E9E5A2BE3AE18003BE33E /* Protocols */,
+				7E3E9E562BE3AD4F003BE33E /* PasswordResetView.swift */,
+				7E3E9E582BE3AE06003BE33E /* PasswordResetViewModel.swift */,
+			);
+			path = PasswordResetView;
+			sourceTree = "<group>";
+		};
+		7E3E9E5A2BE3AE18003BE33E /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				7E3E9E5D2BE3AE47003BE33E /* PasswordResetViewModelProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		7E4919E12BE22FEB00829B61 = {
@@ -167,11 +247,13 @@
 			isa = PBXGroup;
 			children = (
 				7E2222062BE2542100D27EBD /* App */,
+				7E3E9E452BE3824F003BE33E /* Router */,
 				7E491A0B2BE24F5E00829B61 /* Services */,
 				7E3E9E3A2BE36C67003BE33E /* Models */,
 				7E4919FB2BE22FFC00829B61 /* Scenes */,
 				7E2222232BE26AF900D27EBD /* Resources */,
 				7E491A002BE231E900829B61 /* Extensions */,
+				7E3E9E422BE37CB9003BE33E /* Modifiers */,
 				7E4919F32BE22FED00829B61 /* Preview Content */,
 			);
 			path = AuthorizationTest;
@@ -190,6 +272,9 @@
 			children = (
 				7E491A082BE245BD00829B61 /* GlobalViews */,
 				7E4919FC2BE2300000829B61 /* Registration */,
+				7E3E9E3D2BE37394003BE33E /* Authorization */,
+				7E3E9E552BE3AD30003BE33E /* PasswordResetView */,
+				7E3E9E482BE38D17003BE33E /* ImageEditor */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -216,8 +301,6 @@
 		7E491A032BE234A400829B61 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				7E491A042BE234AF00829B61 /* InputTextField.swift */,
-				7E491A062BE23EFA00829B61 /* ClueTextView.swift */,
 				7E22223D2BE2763E00D27EBD /* GoogleSignInButton.swift */,
 			);
 			path = Views;
@@ -227,6 +310,9 @@
 			isa = PBXGroup;
 			children = (
 				7E491A092BE245D200829B61 /* BaseButtonView.swift */,
+				7E491A042BE234AF00829B61 /* InputTextField.swift */,
+				7E491A062BE23EFA00829B61 /* ClueTextView.swift */,
+				7E3E9E4F2BE39BD9003BE33E /* LoaderView.swift */,
 			);
 			path = GlobalViews;
 			sourceTree = "<group>";
@@ -362,20 +448,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E3E9E412BE373DB003BE33E /* AuthorizationViewModel.swift in Sources */,
 				7E491A072BE23EFA00829B61 /* ClueTextView.swift in Sources */,
+				7E3E9E502BE39BD9003BE33E /* LoaderView.swift in Sources */,
 				7E22221F2BE2688400D27EBD /* RegistrationViewModel.swift in Sources */,
 				7E491A052BE234AF00829B61 /* InputTextField.swift in Sources */,
 				7E4919EE2BE22FEB00829B61 /* AuthorizationTestApp.swift in Sources */,
+				7E3E9E532BE3A7A5003BE33E /* AuthorizationViewModelProtocol.swift in Sources */,
+				7E3E9E592BE3AE06003BE33E /* PasswordResetViewModel.swift in Sources */,
 				7E3E9E3C2BE36C71003BE33E /* UserDTO.swift in Sources */,
+				7E3E9E442BE37CCF003BE33E /* ClearButtonModifier.swift in Sources */,
 				7E22223E2BE2763E00D27EBD /* GoogleSignInButton.swift in Sources */,
+				7E3E9E472BE38258003BE33E /* MainRouter.swift in Sources */,
 				7E3E9E392BE2B54F003BE33E /* AuthorizationServiceProtocol.swift in Sources */,
 				7E491A0A2BE245D200829B61 /* BaseButtonView.swift in Sources */,
+				7E3E9E3F2BE373AC003BE33E /* AuthorizationView.swift in Sources */,
 				7E3E9E362BE2B51C003BE33E /* AuthorizationService.swift in Sources */,
+				7E3E9E5E2BE3AE47003BE33E /* PasswordResetViewModelProtocol.swift in Sources */,
 				7E2222082BE2543100D27EBD /* AppDelegate.swift in Sources */,
 				7E4919FE2BE2300E00829B61 /* RegistrationView.swift in Sources */,
+				7E3E9E4A2BE38D26003BE33E /* ImageEditorView.swift in Sources */,
 				7E2222222BE268CB00D27EBD /* RegistrationViewModelProtocol.swift in Sources */,
 				7E22224A2BE2A7B700D27EBD /* Resources.swift in Sources */,
 				7E2222252BE26B0200D27EBD /* UIConstants.swift in Sources */,
+				7E3E9E572BE3AD4F003BE33E /* PasswordResetView.swift in Sources */,
 				7E2222482BE27F3100D27EBD /* Strings+Generated.swift in Sources */,
 				7E22221D2BE2677000D27EBD /* SignInApplication.swift in Sources */,
 				7E22224C2BE2A84500D27EBD /* Font + Extension.swift in Sources */,

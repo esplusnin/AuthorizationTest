@@ -26,4 +26,13 @@ enum UIConstants {
         static let cornerRadius: CGFloat = 10
         static let shadowRadius: CGFloat = 3
     }
+    
+    enum ClearButtonModifier {
+        static let circleSide: CGFloat = 20
+        static let trailingPadding: CGFloat = 10
+    }
+    
+    enum AuthorizationView {
+        static let vStackSpacing: CGFloat = 20
+    }
 }

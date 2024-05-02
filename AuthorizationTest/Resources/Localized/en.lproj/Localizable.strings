@@ -10,3 +10,6 @@
 "registration.signInWithGoogle" = "Sign in with Google";
 "registration.hasAccount" = "Already have an account?";
 "registration.singIn" = "Sign in";
+
+
+"authorization.title" = "Authorization";

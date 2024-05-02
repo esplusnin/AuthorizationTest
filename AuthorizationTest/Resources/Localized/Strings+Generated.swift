@@ -10,6 +10,10 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum Strings {
+  internal enum Authorization {
+    /// Авторизация
+    internal static let title = Strings.tr("Localizable", "authorization.title", fallback: "Авторизация")
+  }
   internal enum Registration {
     /// Повторите пароль
     internal static let confirmPassword = Strings.tr("Localizable", "registration.confirmPassword", fallback: "Повторите пароль")

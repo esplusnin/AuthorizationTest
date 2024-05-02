@@ -3,6 +3,7 @@ import SwiftUI
 struct BaseButtonView: View {
     
     // MARK: - Constants and Variables:
+    var title: String
     var isUnlocked: Bool
     var action: () -> Void
     
@@ -11,7 +12,7 @@ struct BaseButtonView: View {
         Button {
             action()
         } label: {
-            Text(Strings.Registration.createAccount)
+            Text(title)
                 .frame(maxWidth: .infinity,
                        maxHeight: UIConstants.BaseButtonView.height)
                 .foregroundStyle(.universalWhite)
@@ -27,5 +28,5 @@ struct BaseButtonView: View {
 }
 
 #Preview {
-    BaseButtonView(isUnlocked: true, action: {})
+    BaseButtonView(title: "Создать новый аккаунт", isUnlocked: true, action: {})
 }

@@ -3,6 +3,9 @@ import SwiftUI
 @main
 struct AuthorizationTestApp: App {
     
+    // MARK: - Dependencies:
+    @StateObject var router = MainRouter()
+    
     // MARK: - Classes:
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
@@ -11,6 +14,10 @@ struct AuthorizationTestApp: App {
     var body: some Scene {
         WindowGroup {
             RegistrationView(viewModel: registrationViewModel)
+                .environmentObject(router)
+                .onAppear {
+                    registrationViewModel.router = router
+                }
         }
     }
 }

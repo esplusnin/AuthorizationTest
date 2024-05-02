@@ -34,12 +34,16 @@ struct InputTextField: View {
                 .foregroundColor(.universalGray))
             .foregroundStyle(.universalBlack)
             .textInputAutocapitalization(.never)
+            .keyboardType(.emailAddress)
+            .clearButton(with: $inputText)
+            
         } else {
             SecureField("Enter info",
                         text: $inputText,
                         prompt: Text(state.promptText)
                 .foregroundColor(.universalGray))
             .foregroundStyle(.universalBlack)
+            .clearButton(with: $inputText)
         }
         
         Divider()

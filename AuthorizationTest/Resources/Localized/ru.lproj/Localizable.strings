@@ -10,3 +10,5 @@
 "registration.signInWithGoogle" = "Войти с помощью Google";
 "registration.hasAccount" = "Уже зарегистрированы?";
 "registration.singIn" = "Войти";
+
+"authorization.title" = "Авторизация";

@@ -8,6 +8,7 @@ enum AuthorizationError: Error {
     case signInError
     case createNewAccountError
     case emailVerificationError
+    case resetPasswordError
 }
 
 final class AuthorizationService {
@@ -51,6 +52,17 @@ extension AuthorizationService: AuthorizationServiceProtocol {
         }
     }
 
+    func signIn(with email: String, and password: String) async throws -> UserDTO {
+        let result = try? await Auth.auth().signIn(withEmail: email, password: password)
+        
+        if let user = result?.user,
+           let email = user.email {
+            let userDTO = UserDTO(id: user.uid, email: email)
+            return userDTO
+        } else {
+            throw AuthorizationError.signInError
+        }
+    }
     
     func signInWithGoogle() async throws -> Bool {
         let signInResult = try await startGoogleSignInInteractive()
