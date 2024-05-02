@@ -1,8 +1,8 @@
 "registration.title" = "Регистрация";
-"registration.username" = "Введите имя пользователя";
+"registration.email" = "Введите адресс электронной почты";
 "registration.password" = "Введите пароль";
 "registration.confirmPassword" = "Повторите пароль";
-"registration.prompt.username" = "Необходимо как минимум 4 символа";
+"registration.prompt.email" = "Необходимо как минимум 4 символа";
 "registration.prompt.passwordLength" = "Необходимо как минимум 8 символов";
 "registration.prompt.uppercasedLetter" = "Один из символов должен быть заглавным";
 "registration.prompt.confirmedPassword" = "Пароли должны совпадать";

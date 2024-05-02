@@ -1,13 +1,14 @@
 import Foundation
 
 protocol RegistrationViewModelProtocol: ObservableObject {
-    var username: String { get  set }
+    var email: String { get  set }
     var password: String { get  set }
-    var repeatedPassword: String { get set }
-    var isLoginValidated: Bool{ get }
+    var confirmedPassword: String { get set }
+    var isEmailValidated: Bool{ get }
     var isPasswordLengthValidated: Bool { get }
     var isPasswordCapitalLetterValidated: Bool { get }
-    var isPasswordRepeated: Bool { get }
+    var isPasswordConfirmed: Bool { get }
     
-    func signInWithGoogle()
+    func createNewAccount() async
+    func signInWithGoogle() async
 }

@@ -8,7 +8,7 @@ enum TextFieldState {
     var promptText: String {
         return switch self {
         case .username:
-            Strings.Registration.username
+            Strings.Registration.email
         case .password:
             Strings.Registration.password
         case .confirmedPassword:
@@ -30,11 +30,16 @@ struct InputTextField: View {
         if state == .username {
             TextField("Enter info",
                       text: $inputText,
-                      prompt: Text(state.promptText))
+                      prompt: Text(state.promptText)
+                .foregroundColor(.universalGray))
+            .foregroundStyle(.universalBlack)
+            .textInputAutocapitalization(.never)
         } else {
             SecureField("Enter info",
                         text: $inputText,
-                        prompt: Text(state.promptText))
+                        prompt: Text(state.promptText)
+                .foregroundColor(.universalGray))
+            .foregroundStyle(.universalBlack)
         }
         
         Divider()

@@ -3,6 +3,7 @@ import SwiftUI
 struct BaseButtonView: View {
     
     // MARK: - Constants and Variables:
+    var isUnlocked: Bool
     var action: () -> Void
     
     // MARK: - UI:
@@ -10,19 +11,21 @@ struct BaseButtonView: View {
         Button {
             action()
         } label: {
-            Text("Создать новый аккаунт")
+            Text(Strings.Registration.createAccount)
                 .frame(maxWidth: .infinity,
                        maxHeight: UIConstants.BaseButtonView.height)
-                .foregroundStyle(.white)
+                .foregroundStyle(.universalWhite)
                 .background(
                     RoundedRectangle(cornerRadius: UIConstants.BaseButtonView.cornerRadius)
                         .fill(.universalBlue)
                         .shadow(radius: UIConstants.BaseButtonView.shadowRadius)
                 )
         }
+        .opacity(isUnlocked ? 1 : 0.5)
+        .allowsHitTesting(isUnlocked ? true : false)
     }
 }
 
 #Preview {
-    BaseButtonView(action: {})
+    BaseButtonView(isUnlocked: true, action: {})
 }

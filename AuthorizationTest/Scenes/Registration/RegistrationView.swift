@@ -9,17 +9,17 @@ struct RegistrationView<ViewModel>: View where ViewModel: RegistrationViewModelP
     // MARK: - UI:
     var body: some View {
         ZStack {
-            LinearGradient.backgroundGradient
+            Color.universalWhite
                 .ignoresSafeArea()
             
             VStack(spacing: UIConstants.RegistrationView.largeVStackSpacing) {
                 Text(Strings.Registration.title)
                     .font(.extraLargeBoldFont)
-                    .foregroundStyle(.white)
+                    .foregroundStyle(.universalBlue)
                 
                 VStack(spacing: UIConstants.RegistrationView.smallVStackSpacing) {
-                    InputTextField(inputText: $viewModel.username, state: .username)
-                    ClueTextView(state: .username, isValid: viewModel.isLoginValidated)
+                    InputTextField(inputText: $viewModel.email, state: .username)
+                    ClueTextView(state: .username, isValid: viewModel.isEmailValidated)
                 }
                 
                 VStack(spacing: UIConstants.RegistrationView.smallVStackSpacing) {
@@ -31,20 +31,28 @@ struct RegistrationView<ViewModel>: View where ViewModel: RegistrationViewModelP
                 }
                 
                 VStack(spacing: UIConstants.RegistrationView.smallVStackSpacing) {
-                    InputTextField(inputText: $viewModel.repeatedPassword, state: .confirmedPassword)
+                    InputTextField(inputText: $viewModel.confirmedPassword, state: .confirmedPassword)
                     ClueTextView(state: .confirmedPassword,
-                                 isValid: viewModel.isPasswordRepeated)
+                                 isValid: viewModel.isPasswordConfirmed)
                 }
                 
                 Spacer()
                 
                 VStack(spacing: UIConstants.RegistrationView.mediumVStackSpacing) {
-                    BaseButtonView(action: {})
-                    GoogleSignInButton { viewModel.signInWithGoogle() }
+                    BaseButtonView(isUnlocked: viewModel.isEmailValidated &&
+                                   viewModel.isPasswordConfirmed && viewModel.isPasswordCapitalLetterValidated) {
+                        createNewAccount()
+                    }
+                    
+                    GoogleSignInButton {
+                        signInWithGoogle()
+                    }
                     
                     HStack {
                         Text(Strings.Registration.hasAccount)
+                            .foregroundStyle(.universalBlack)
                             .bold()
+                        
                         Button {
                             
                         } label: {
@@ -58,8 +66,21 @@ struct RegistrationView<ViewModel>: View where ViewModel: RegistrationViewModelP
             .padding()
         }
     }
+    
+    // MARK: - Private Methods:
+    private func createNewAccount() {
+        Task {
+            await viewModel.createNewAccount()
+        }
+    }
+    
+    private func signInWithGoogle() {
+        Task {
+            await viewModel.signInWithGoogle()
+        }
+    }
 }
 
 #Preview {
-    RegistrationView(viewModel: RegistrationViewModel())
+    RegistrationView(viewModel: RegistrationViewModel(authorizationService: AuthorizationService()))
 }

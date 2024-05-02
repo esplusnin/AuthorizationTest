@@ -15,6 +15,8 @@ internal enum Strings {
     internal static let confirmPassword = Strings.tr("Localizable", "registration.confirmPassword", fallback: "Повторите пароль")
     /// Создать новый аккаунт
     internal static let createAccount = Strings.tr("Localizable", "registration.createAccount", fallback: "Создать новый аккаунт")
+    /// Введите адресс электронной почты
+    internal static let email = Strings.tr("Localizable", "registration.email", fallback: "Введите адресс электронной почты")
     /// Уже зарегистрированы?
     internal static let hasAccount = Strings.tr("Localizable", "registration.hasAccount", fallback: "Уже зарегистрированы?")
     /// Введите пароль
@@ -25,17 +27,15 @@ internal enum Strings {
     internal static let singIn = Strings.tr("Localizable", "registration.singIn", fallback: "Войти")
     /// Регистрация
     internal static let title = Strings.tr("Localizable", "registration.title", fallback: "Регистрация")
-    /// Введите имя пользователя
-    internal static let username = Strings.tr("Localizable", "registration.username", fallback: "Введите имя пользователя")
     internal enum Prompt {
       /// Пароли должны совпадать
       internal static let confirmedPassword = Strings.tr("Localizable", "registration.prompt.confirmedPassword", fallback: "Пароли должны совпадать")
+      /// Необходимо как минимум 4 символа
+      internal static let email = Strings.tr("Localizable", "registration.prompt.email", fallback: "Необходимо как минимум 4 символа")
       /// Необходимо как минимум 8 символов
       internal static let passwordLength = Strings.tr("Localizable", "registration.prompt.passwordLength", fallback: "Необходимо как минимум 8 символов")
       /// Один из символов должен быть заглавным
       internal static let uppercasedLetter = Strings.tr("Localizable", "registration.prompt.uppercasedLetter", fallback: "Один из символов должен быть заглавным")
-      /// Необходимо как минимум 4 символа
-      internal static let username = Strings.tr("Localizable", "registration.prompt.username", fallback: "Необходимо как минимум 4 символа")
     }
   }
 }

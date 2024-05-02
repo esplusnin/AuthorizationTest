@@ -9,7 +9,7 @@ enum ClueTextViewState: Equatable {
     var promptText: String {
         return switch self {
         case .username:
-            Strings.Registration.Prompt.username
+            Strings.Registration.Prompt.email
         case .passwordLength:
             Strings.Registration.Prompt.passwordLength
         case .uppercasedLetter:
@@ -39,19 +39,21 @@ struct ClueTextView: View {
                     .overlay {
                         if isValid {
                             Image(systemName: Resources.Images.multiply)
-                                .foregroundStyle(.blue)
+                                .foregroundStyle(.universalBlue)
                         }
                     }
+                    .animation(.default, value: isValid)
             } else {
                 Image(systemName: isValid ? Resources.Images.lockOpen : Resources.Images.lockClosed)                   
                     .frame(width: UIConstants.ClueTextView.imageSide,
                            height: UIConstants.ClueTextView.imageSide)
-                    .foregroundStyle(.blue)
+                    .foregroundStyle(.universalBlue)
+                    .animation(.default, value: isValid)
             }
             
             Text(state.promptText)
                 .font(.regularMediumFont)
-                .foregroundStyle(.gray)
+                .foregroundStyle(.universalGray)
                 .strikethrough(isValid)
             
             Spacer()
