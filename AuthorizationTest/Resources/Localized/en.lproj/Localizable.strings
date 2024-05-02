@@ -2,7 +2,7 @@
 "registration.email" = "Enter email";
 "registration.password" = "Enter password";
 "registration.confirmPassword" = "Confirm password";
-"registration.prompt.email" = "A minimum of 4 charapters";
+"registration.prompt.email" = "An addresssign @ is required";
 "registration.prompt.passwordLength" = "A minimum of 8 charapters";
 "registration.prompt.uppercasedLetter" = "One uppercased letter";
 "registration.prompt.confirmedPassword" = "Confirmed password must be the same as password";
@@ -10,6 +10,14 @@
 "registration.signInWithGoogle" = "Sign in with Google";
 "registration.hasAccount" = "Already have an account?";
 "registration.singIn" = "Sign in";
+"registration.forgetPassword" = "Forget the password??";
+"registration.resumePassword" = "Resume password";
 
 
 "authorization.title" = "Authorization";
+
+"PasswordResetView.title" = "Resume Access";
+"PasswordResetView.messageDidSent" = "The message was sent to your email ✅";
+"PasswordResetView.close" = "Close";
+"PasswordResetView.enterEmail" = "Enter email to reset password";
+"PasswordResetView.resetPassword" = "Reset password";

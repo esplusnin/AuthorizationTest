@@ -6,7 +6,7 @@ final class AuthorizationViewModel: AuthorizationViewModelProtocol {
     // MARK: - Dependencies:
     weak var router: MainRouter?
     
-    private let authorizationService: AuthorizationServiceProtocol
+    private(set) var authorizationService: AuthorizationServiceProtocol
     
     // MARK: - Publishers:
     @Published var email = ""
@@ -25,25 +25,22 @@ final class AuthorizationViewModel: AuthorizationViewModelProtocol {
     }
     
     // MARK: - Public Methods:
-    func signIn() async {
-        await changeIsLoadingState()
-        
-        do {
-            let _ = try await authorizationService.signIn(with: email, and: password)
-            await router?.goTo(.imageEditor)
-        } catch {
-            print(error.localizedDescription)
+    func signIn() {
+        isLoading.toggle()
+
+        Task {
+            do {
+                let _ = try await authorizationService.signIn(with: email, and: password)
+                await router?.goTo(.imageEditor)
+            } catch {
+                print(error.localizedDescription)
+            }
         }
         
-        await changeIsLoadingState()
-    }
-    
-    // MARK: - Private Methods:
-    @MainActor
-    private func changeIsLoadingState() {
         isLoading.toggle()
     }
     
+    // MARK: - Private Methods:
     private func setupEmailAndPasswordsObserver() {
         Publishers.CombineLatest($email, $password)
             .receive(on: RunLoop.main)

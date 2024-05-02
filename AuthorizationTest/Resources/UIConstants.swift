@@ -6,6 +6,7 @@ enum UIConstants {
         static let mediumVStackSpacing: CGFloat = 20
         static let smallVStackSpacing: CGFloat = 10
         static let bottomPadding: CGFloat = 100
+        static let blurValue: CGFloat = 20
     }
     
     enum ClueTextView {
@@ -33,6 +34,10 @@ enum UIConstants {
     }
     
     enum AuthorizationView {
+        static let vStackSpacing: CGFloat = 20
+    }
+    
+    enum PasswordResetView {
         static let vStackSpacing: CGFloat = 20
     }
 }

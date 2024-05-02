@@ -80,4 +80,12 @@ extension AuthorizationService: AuthorizationServiceProtocol {
             return false
         }
     }
+    
+    func resetPassword(with email: String) async throws {
+        do {
+            try await Auth.auth().sendPasswordReset(withEmail: email)
+        } catch {
+            throw AuthorizationError.resetPasswordError
+        }
+    }
 }

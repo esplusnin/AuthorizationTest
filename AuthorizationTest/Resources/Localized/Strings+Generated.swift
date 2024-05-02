@@ -10,6 +10,18 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum Strings {
+  internal enum PasswordResetView {
+    /// Закрыть
+    internal static let close = Strings.tr("Localizable", "PasswordResetView.close", fallback: "Закрыть")
+    /// Введите email для сброса пароля
+    internal static let enterEmail = Strings.tr("Localizable", "PasswordResetView.enterEmail", fallback: "Введите email для сброса пароля")
+    /// Письмо отправлено к вам на почту ✅
+    internal static let messageDidSent = Strings.tr("Localizable", "PasswordResetView.messageDidSent", fallback: "Письмо отправлено к вам на почту ✅")
+    /// Сбросить пароль
+    internal static let resetPassword = Strings.tr("Localizable", "PasswordResetView.resetPassword", fallback: "Сбросить пароль")
+    /// Восстановление доступа
+    internal static let title = Strings.tr("Localizable", "PasswordResetView.title", fallback: "Восстановление доступа")
+  }
   internal enum Authorization {
     /// Авторизация
     internal static let title = Strings.tr("Localizable", "authorization.title", fallback: "Авторизация")
@@ -19,12 +31,16 @@ internal enum Strings {
     internal static let confirmPassword = Strings.tr("Localizable", "registration.confirmPassword", fallback: "Повторите пароль")
     /// Создать новый аккаунт
     internal static let createAccount = Strings.tr("Localizable", "registration.createAccount", fallback: "Создать новый аккаунт")
-    /// Введите адресс электронной почты
-    internal static let email = Strings.tr("Localizable", "registration.email", fallback: "Введите адресс электронной почты")
+    /// Введите адрес электронной почты
+    internal static let email = Strings.tr("Localizable", "registration.email", fallback: "Введите адрес электронной почты")
+    /// Забыли пароль?
+    internal static let forgetPassword = Strings.tr("Localizable", "registration.forgetPassword", fallback: "Забыли пароль?")
     /// Уже зарегистрированы?
     internal static let hasAccount = Strings.tr("Localizable", "registration.hasAccount", fallback: "Уже зарегистрированы?")
     /// Введите пароль
     internal static let password = Strings.tr("Localizable", "registration.password", fallback: "Введите пароль")
+    /// Восстановить
+    internal static let resumePassword = Strings.tr("Localizable", "registration.resumePassword", fallback: "Восстановить")
     /// Войти с помощью Google
     internal static let signInWithGoogle = Strings.tr("Localizable", "registration.signInWithGoogle", fallback: "Войти с помощью Google")
     /// Войти
@@ -34,8 +50,8 @@ internal enum Strings {
     internal enum Prompt {
       /// Пароли должны совпадать
       internal static let confirmedPassword = Strings.tr("Localizable", "registration.prompt.confirmedPassword", fallback: "Пароли должны совпадать")
-      /// Необходимо как минимум 4 символа
-      internal static let email = Strings.tr("Localizable", "registration.prompt.email", fallback: "Необходимо как минимум 4 символа")
+      /// Необходимо указать email с адресантом @
+      internal static let email = Strings.tr("Localizable", "registration.prompt.email", fallback: "Необходимо указать email с адресантом @")
       /// Необходимо как минимум 8 символов
       internal static let passwordLength = Strings.tr("Localizable", "registration.prompt.passwordLength", fallback: "Необходимо как минимум 8 символов")
       /// Один из символов должен быть заглавным

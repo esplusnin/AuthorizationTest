@@ -6,66 +6,76 @@ struct AuthorizationView<ViewModel>: View where ViewModel: AuthorizationViewMode
     @ObservedObject var viewModel: ViewModel
     
     // MARK: - Bindings:
+    @FocusState var isFocused: Bool
     @State private var isSheetPresented = false
     
     var body: some View {
-        ZStack {
-            Color.universalWhite
-                .ignoresSafeArea()
-            
-            VStack(spacing: UIConstants.AuthorizationView.vStackSpacing) {
-                InputTextField(inputText: $viewModel.email, state: .username)
-                InputTextField(inputText: $viewModel.password, state: .password)
+        GeometryReader { _ in
+            ZStack {
+                Color.universalWhite
+                    .ignoresSafeArea()
                 
-                Spacer()
-                
-                BaseButtonView(title: Strings.Registration.singIn,
-                               isUnlocked: viewModel.isReadyToSignIn) {
-                    signIn()
-                }
-                
-                HStack {
+                VStack(spacing: UIConstants.AuthorizationView.vStackSpacing) {
+                    InputTextField(inputText: $viewModel.email, state: .username)
+                        .focused($isFocused)
+
+                    InputTextField(inputText: $viewModel.password, state: .password)
+                        .focused($isFocused)
+                    
+                    Spacer()
+                    
+                    BaseButtonView(title: Strings.Registration.singIn,
+                                   isUnlocked: viewModel.isReadyToSignIn) {
+                        signIn()
+                    }
+                    
                     HStack {
-                        Text("Забыли пароль?")
-                            .foregroundStyle(.universalBlack)
-                            .bold()
-                        
-                    Button {
-                        isSheetPresented.toggle()
-                    } label: {
-                        Text("Восстановить")
-                            .foregroundStyle(.universalBlue)
-                            .bold()
+                        HStack {
+                            Text(Strings.Registration.forgetPassword)
+                                .foregroundStyle(.universalBlack)
+                                .bold()
+                            
+                            Button {
+                                isSheetPresented.toggle()
+                            } label: {
+                                Text(Strings.Registration.resumePassword)
+                                    .foregroundStyle(.universalBlue)
+                                    .bold()
+                            }
+                        }
                     }
                 }
+                .padding()
+                .padding(.bottom, UIConstants.RegistrationView.bottomPadding)
+                .blur(radius: viewModel.isLoading ? 20 : 0)
+                
+                if viewModel.isLoading {
+                    LoaderView()
+                }
             }
+            .toolbarRole(.editor)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text(Strings.Authorization.title)
+                        .font(.extraLargeBoldFont)
+                        .foregroundStyle(.universalBlue)
+                }
             }
-            .padding()
-            .padding(.bottom, UIConstants.RegistrationView.bottomPadding)
-            .blur(radius: viewModel.isLoading ? 20 : 0)
-            
-            if viewModel.isLoading {
-                LoaderView()
+            .onTapGesture {
+                isFocused.toggle()
+            }
+            .sheet(isPresented: $isSheetPresented) {
+                PasswordResetView(
+                    viewModel: PasswordResetViewModel(
+                        authorizationService: viewModel.authorizationService))
             }
         }
-        .toolbarRole(.editor)
-        .toolbar {
-            ToolbarItem(placement: .principal) {
-                Text(Strings.Authorization.title)
-                    .font(.extraLargeBoldFont)
-                    .foregroundStyle(.universalBlue)
-            }
-        }
-        .sheet(isPresented: $isSheetPresented) {
-            
-        }
+        .ignoresSafeArea(.keyboard)
     }
     
     // MARK: - Private Methods:
     private func signIn() {
-        Task {
-            await viewModel.signIn()
-        }
+        viewModel.signIn()
     }
 }
 

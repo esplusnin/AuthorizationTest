@@ -1,8 +1,8 @@
 "registration.title" = "Регистрация";
-"registration.email" = "Введите адресс электронной почты";
+"registration.email" = "Введите адрес электронной почты";
 "registration.password" = "Введите пароль";
 "registration.confirmPassword" = "Повторите пароль";
-"registration.prompt.email" = "Необходимо как минимум 4 символа";
+"registration.prompt.email" = "Необходимо указать email с адресантом @";
 "registration.prompt.passwordLength" = "Необходимо как минимум 8 символов";
 "registration.prompt.uppercasedLetter" = "Один из символов должен быть заглавным";
 "registration.prompt.confirmedPassword" = "Пароли должны совпадать";
@@ -10,5 +10,14 @@
 "registration.signInWithGoogle" = "Войти с помощью Google";
 "registration.hasAccount" = "Уже зарегистрированы?";
 "registration.singIn" = "Войти";
+"registration.forgetPassword" = "Забыли пароль?";
+"registration.resumePassword" = "Восстановить";
+
 
 "authorization.title" = "Авторизация";
+
+"PasswordResetView.title" = "Восстановление доступа";
+"PasswordResetView.messageDidSent" = "Письмо отправлено к вам на почту ✅";
+"PasswordResetView.close" = "Закрыть";
+"PasswordResetView.enterEmail" = "Введите email для сброса пароля";
+"PasswordResetView.resetPassword" = "Сбросить пароль";

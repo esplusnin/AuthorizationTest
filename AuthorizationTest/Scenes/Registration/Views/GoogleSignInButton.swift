@@ -20,8 +20,8 @@ struct GoogleSignInButton: View {
                     .background(.universalWhite)
                     .foregroundStyle(.universalBlack)
             }
-            .frame(maxWidth: .infinity,
-                   maxHeight: UIConstants.GoogleSignInButton.height)
+            .frame(maxWidth: .infinity)
+            .frame(height: UIConstants.GoogleSignInButton.height)
             .background(
                 RoundedRectangle(cornerRadius: UIConstants.GoogleSignInButton.cornerRadius)
                     .fill(.universalWhite)

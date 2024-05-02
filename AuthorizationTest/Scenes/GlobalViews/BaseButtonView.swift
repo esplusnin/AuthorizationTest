@@ -13,8 +13,8 @@ struct BaseButtonView: View {
             action()
         } label: {
             Text(title)
-                .frame(maxWidth: .infinity,
-                       maxHeight: UIConstants.BaseButtonView.height)
+                .frame(maxWidth: .infinity)
+                .frame(height: UIConstants.BaseButtonView.height)
                 .foregroundStyle(.universalWhite)
                 .background(
                     RoundedRectangle(cornerRadius: UIConstants.BaseButtonView.cornerRadius)
