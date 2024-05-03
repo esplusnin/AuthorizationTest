@@ -1,3 +1,5 @@
+"splashScreen.title" = "AuthorizationTetst";
+
 "registration.title" = "Create an account";
 "registration.email" = "Enter email";
 "registration.password" = "Enter password";
@@ -10,7 +12,7 @@
 "registration.signInWithGoogle" = "Sign in with Google";
 "registration.hasAccount" = "Already have an account?";
 "registration.singIn" = "Sign in";
-"registration.forgetPassword" = "Forget the password??";
+"registration.forgetPassword" = "Forget the password?";
 "registration.resumePassword" = "Resume password";
 
 
@@ -21,3 +23,5 @@
 "PasswordResetView.close" = "Close";
 "PasswordResetView.enterEmail" = "Enter email to reset password";
 "PasswordResetView.resetPassword" = "Reset password";
+
+"imageEditor.choosePhoto" = "Choose image from library";

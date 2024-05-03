@@ -1,6 +1,7 @@
 import Foundation
 
-struct UserDTO {
+struct UserDTO: Codable {
     let id: String
     let email: String
+    let token: String
 }

@@ -82,6 +82,7 @@ struct AuthorizationView<ViewModel>: View where ViewModel: AuthorizationViewMode
 #Preview {
     AuthorizationView(
         viewModel: AuthorizationViewModel(
-            router: MainRouter(),
+            router: MainRouter(), 
+            keyChainStorage: KeyChainStorage(),
             authorizationService: AuthorizationService()))
 }

@@ -11,7 +11,7 @@ enum AuthorizationError: Error {
     case resetPasswordError
 }
 
-final class AuthorizationService {
+final class AuthorizationService: ObservableObject {
     
     // MARK: - Private Methods:
     private func sendEmailVerification() async throws {
@@ -42,8 +42,10 @@ extension AuthorizationService: AuthorizationServiceProtocol {
         let result = try? await Auth.auth().createUser(withEmail: email, password: password)
         
         if let user = result?.user,
-           let email = user.email {
-            let userDTO = UserDTO(id: user.uid, email: email)
+           let email = user.email,
+           let token = user.refreshToken {
+            print("NEW ACCOUNT")
+            let userDTO = UserDTO(id: user.uid, email: email, token: token)
             try await sendEmailVerification()
             
             return userDTO
@@ -56,28 +58,35 @@ extension AuthorizationService: AuthorizationServiceProtocol {
         let result = try? await Auth.auth().signIn(withEmail: email, password: password)
         
         if let user = result?.user,
-           let email = user.email {
-            let userDTO = UserDTO(id: user.uid, email: email)
+           let email = user.email,
+           let token = user.refreshToken {
+            print("SIGN IN")
+            let userDTO = UserDTO(id: user.uid, email: email, token: token)
             return userDTO
         } else {
             throw AuthorizationError.signInError
         }
     }
     
-    func signInWithGoogle() async throws -> Bool {
+    func signInWithGoogle() async throws -> UserDTO {
         let signInResult = try await startGoogleSignInInteractive()
         
         guard let user = signInResult?.user,
-              let idToken = user.idToken?.tokenString else { return false }
+              let idToken = user.idToken?.tokenString else {
+            throw AuthorizationError.signInByGoogleError
+        }
         
         let credential = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: user.accessToken.tokenString)
         
         let authResult = try? await Auth.auth().signIn(with: credential)
         
-        if let _ = authResult?.user {
-            return true
+        if let user = authResult?.user,
+           let email = user.email,
+           let token = user.refreshToken {
+            print("GOOGLE")
+            return UserDTO(id: user.uid, email: email, token: token)
         } else {
-            return false
+            throw AuthorizationError.signInByGoogleError
         }
     }
     

@@ -6,6 +6,7 @@ final class AuthorizationViewModel: AuthorizationViewModelProtocol {
     // MARK: - Dependencies:
     weak var router: MainRouter?
     
+    private var keyChainStorage: KeyChainStorage
     private(set) var authorizationService: AuthorizationServiceProtocol
     
     // MARK: - Publishers:
@@ -18,29 +19,42 @@ final class AuthorizationViewModel: AuthorizationViewModelProtocol {
     private var cancellable = Set<AnyCancellable>()
     
     // MARK: - Lifecycle:
-    init(router: MainRouter, authorizationService: AuthorizationServiceProtocol) {
+    init(router: MainRouter, keyChainStorage: KeyChainStorage, authorizationService: AuthorizationServiceProtocol) {
         self.router = router
+        self.keyChainStorage = keyChainStorage
         self.authorizationService = authorizationService
         setupEmailAndPasswordsObserver()
     }
     
     // MARK: - Public Methods:
     func signIn() {
-        isLoading.toggle()
 
         Task {
             do {
-                let _ = try await authorizationService.signIn(with: email, and: password)
+                await changeLoadingStatus()
+                let userInfo = try await authorizationService.signIn(with: email, and: password)
+                saveNew(userInfo)
                 await router?.goTo(.imageEditor)
             } catch {
                 print(error.localizedDescription)
             }
+            
+            await changeLoadingStatus()
         }
-        
-        isLoading.toggle()
     }
     
     // MARK: - Private Methods:
+    @MainActor
+    private func changeLoadingStatus() {
+        isLoading.toggle()
+    }
+    
+    private func saveNew(_ userInfo: UserDTO) {
+        Task {
+            await keyChainStorage.setNewValue(with: userInfo)
+        }
+    }
+    
     private func setupEmailAndPasswordsObserver() {
         Publishers.CombineLatest($email, $password)
             .receive(on: RunLoop.main)

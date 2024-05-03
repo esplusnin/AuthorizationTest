@@ -1,3 +1,5 @@
+"splashScreen.title" = "AuthorizationTetst";
+
 "registration.title" = "Регистрация";
 "registration.email" = "Введите адрес электронной почты";
 "registration.password" = "Введите пароль";
@@ -21,3 +23,5 @@
 "PasswordResetView.close" = "Закрыть";
 "PasswordResetView.enterEmail" = "Введите email для сброса пароля";
 "PasswordResetView.resetPassword" = "Сбросить пароль";
+
+"imageEditor.choosePhoto" = "Выберите изображение из библиотеки";

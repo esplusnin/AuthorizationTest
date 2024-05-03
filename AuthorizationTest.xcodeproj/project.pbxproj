@@ -43,6 +43,16 @@
 		7E3E9E572BE3AD4F003BE33E /* PasswordResetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3E9E562BE3AD4F003BE33E /* PasswordResetView.swift */; };
 		7E3E9E592BE3AE06003BE33E /* PasswordResetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3E9E582BE3AE06003BE33E /* PasswordResetViewModel.swift */; };
 		7E3E9E5E2BE3AE47003BE33E /* PasswordResetViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3E9E5D2BE3AE47003BE33E /* PasswordResetViewModelProtocol.swift */; };
+		7E3E9E602BE3F33C003BE33E /* ImageEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3E9E5F2BE3F33C003BE33E /* ImageEditorViewModel.swift */; };
+		7E3E9E632BE40C7A003BE33E /* ImageEditorViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3E9E622BE40C7A003BE33E /* ImageEditorViewModelProtocol.swift */; };
+		7E3E9E672BE41714003BE33E /* AccessCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3E9E662BE41714003BE33E /* AccessCameraView.swift */; };
+		7E3E9E6A2BE41847003BE33E /* ImagePickerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3E9E692BE41847003BE33E /* ImagePickerCoordinator.swift */; };
+		7E3E9E6E2BE42051003BE33E /* KeyChainStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3E9E6D2BE42051003BE33E /* KeyChainStorage.swift */; };
+		7E3E9E712BE4208F003BE33E /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 7E3E9E702BE4208F003BE33E /* KeychainAccess */; };
+		7E3E9E742BE4AD28003BE33E /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3E9E732BE4AD28003BE33E /* SplashScreenView.swift */; };
+		7E3E9E762BE4AE84003BE33E /* SplashScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3E9E752BE4AE84003BE33E /* SplashScreenViewModel.swift */; };
+		7E3E9E792BE4AEA1003BE33E /* SplashScreenViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3E9E782BE4AEA1003BE33E /* SplashScreenViewModelProtocol.swift */; };
+		7E3E9E7D2BE4BC38003BE33E /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E3E9E7C2BE4BC38003BE33E /* Launch Screen.storyboard */; };
 		7E4919EE2BE22FEB00829B61 /* AuthorizationTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4919ED2BE22FEB00829B61 /* AuthorizationTestApp.swift */; };
 		7E4919F22BE22FED00829B61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E4919F12BE22FED00829B61 /* Assets.xcassets */; };
 		7E4919F52BE22FED00829B61 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E4919F42BE22FED00829B61 /* Preview Assets.xcassets */; };
@@ -79,6 +89,15 @@
 		7E3E9E562BE3AD4F003BE33E /* PasswordResetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetView.swift; sourceTree = "<group>"; };
 		7E3E9E582BE3AE06003BE33E /* PasswordResetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetViewModel.swift; sourceTree = "<group>"; };
 		7E3E9E5D2BE3AE47003BE33E /* PasswordResetViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetViewModelProtocol.swift; sourceTree = "<group>"; };
+		7E3E9E5F2BE3F33C003BE33E /* ImageEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEditorViewModel.swift; sourceTree = "<group>"; };
+		7E3E9E622BE40C7A003BE33E /* ImageEditorViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEditorViewModelProtocol.swift; sourceTree = "<group>"; };
+		7E3E9E662BE41714003BE33E /* AccessCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessCameraView.swift; sourceTree = "<group>"; };
+		7E3E9E692BE41847003BE33E /* ImagePickerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerCoordinator.swift; sourceTree = "<group>"; };
+		7E3E9E6D2BE42051003BE33E /* KeyChainStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainStorage.swift; sourceTree = "<group>"; };
+		7E3E9E732BE4AD28003BE33E /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
+		7E3E9E752BE4AE84003BE33E /* SplashScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewModel.swift; sourceTree = "<group>"; };
+		7E3E9E782BE4AEA1003BE33E /* SplashScreenViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewModelProtocol.swift; sourceTree = "<group>"; };
+		7E3E9E7C2BE4BC38003BE33E /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		7E4919EA2BE22FEB00829B61 /* AuthorizationTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AuthorizationTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E4919ED2BE22FEB00829B61 /* AuthorizationTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationTestApp.swift; sourceTree = "<group>"; };
 		7E4919F12BE22FED00829B61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -99,6 +118,7 @@
 				7E2222162BE255E800D27EBD /* GoogleSignIn in Frameworks */,
 				7E2222282BE26F7000D27EBD /* FirebaseAnalytics in Frameworks */,
 				7E2222342BE26F7000D27EBD /* FirebaseAuth in Frameworks */,
+				7E3E9E712BE4208F003BE33E /* KeychainAccess in Frameworks */,
 				7E2222382BE26F7000D27EBD /* FirebaseCrashlytics in Frameworks */,
 				7E22223A2BE26F7000D27EBD /* FirebaseDatabase in Frameworks */,
 				7E2222302BE26F7000D27EBD /* FirebaseAppCheck in Frameworks */,
@@ -119,6 +139,7 @@
 				7E4919ED2BE22FEB00829B61 /* AuthorizationTestApp.swift */,
 				7E22221C2BE2677000D27EBD /* SignInApplication.swift */,
 				7E22221B2BE2587F00D27EBD /* Info.plist */,
+				7E3E9E7C2BE4BC38003BE33E /* Launch Screen.storyboard */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -196,7 +217,11 @@
 		7E3E9E482BE38D17003BE33E /* ImageEditor */ = {
 			isa = PBXGroup;
 			children = (
+				7E3E9E612BE40C6D003BE33E /* Protocols */,
+				7E3E9E682BE4183A003BE33E /* ImagePickerCoordinator */,
+				7E3E9E652BE41703003BE33E /* Views */,
 				7E3E9E492BE38D26003BE33E /* ImageEditorView.swift */,
+				7E3E9E5F2BE3F33C003BE33E /* ImageEditorViewModel.swift */,
 			);
 			path = ImageEditor;
 			sourceTree = "<group>";
@@ -225,6 +250,56 @@
 				7E3E9E5D2BE3AE47003BE33E /* PasswordResetViewModelProtocol.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		7E3E9E612BE40C6D003BE33E /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				7E3E9E622BE40C7A003BE33E /* ImageEditorViewModelProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		7E3E9E652BE41703003BE33E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7E3E9E662BE41714003BE33E /* AccessCameraView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7E3E9E682BE4183A003BE33E /* ImagePickerCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				7E3E9E692BE41847003BE33E /* ImagePickerCoordinator.swift */,
+			);
+			path = ImagePickerCoordinator;
+			sourceTree = "<group>";
+		};
+		7E3E9E6C2BE42040003BE33E /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				7E3E9E6D2BE42051003BE33E /* KeyChainStorage.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		7E3E9E722BE4AD14003BE33E /* SplashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				7E3E9E772BE4AE9A003BE33E /* Protocol */,
+				7E3E9E732BE4AD28003BE33E /* SplashScreenView.swift */,
+				7E3E9E752BE4AE84003BE33E /* SplashScreenViewModel.swift */,
+			);
+			path = SplashScreen;
+			sourceTree = "<group>";
+		};
+		7E3E9E772BE4AE9A003BE33E /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				7E3E9E782BE4AEA1003BE33E /* SplashScreenViewModelProtocol.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		7E4919E12BE22FEB00829B61 = {
@@ -271,6 +346,7 @@
 			isa = PBXGroup;
 			children = (
 				7E491A082BE245BD00829B61 /* GlobalViews */,
+				7E3E9E722BE4AD14003BE33E /* SplashScreen */,
 				7E4919FC2BE2300000829B61 /* Registration */,
 				7E3E9E3D2BE37394003BE33E /* Authorization */,
 				7E3E9E552BE3AD30003BE33E /* PasswordResetView */,
@@ -321,6 +397,7 @@
 			isa = PBXGroup;
 			children = (
 				7E491A0C2BE24F8900829B61 /* AuthorizationService */,
+				7E3E9E6C2BE42040003BE33E /* Storage */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -365,6 +442,7 @@
 				7E2222352BE26F7000D27EBD /* FirebaseAuthCombine-Community */,
 				7E2222372BE26F7000D27EBD /* FirebaseCrashlytics */,
 				7E2222392BE26F7000D27EBD /* FirebaseDatabase */,
+				7E3E9E702BE4208F003BE33E /* KeychainAccess */,
 			);
 			productName = AuthorizationTest;
 			productReference = 7E4919EA2BE22FEB00829B61 /* AuthorizationTest.app */;
@@ -397,6 +475,7 @@
 			packageReferences = (
 				7E2222142BE255E800D27EBD /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				7E2222262BE26F7000D27EBD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				7E3E9E6F2BE4208F003BE33E /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 			);
 			productRefGroup = 7E4919EB2BE22FEB00829B61 /* Products */;
 			projectDirPath = "";
@@ -412,6 +491,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E3E9E7D2BE4BC38003BE33E /* Launch Screen.storyboard in Resources */,
 				7E4919F52BE22FED00829B61 /* Preview Assets.xcassets in Resources */,
 				7E2222422BE27E7C00D27EBD /* Localizable.strings in Resources */,
 				7E4919F22BE22FED00829B61 /* Assets.xcassets in Resources */,
@@ -453,22 +533,30 @@
 				7E3E9E502BE39BD9003BE33E /* LoaderView.swift in Sources */,
 				7E22221F2BE2688400D27EBD /* RegistrationViewModel.swift in Sources */,
 				7E491A052BE234AF00829B61 /* InputTextField.swift in Sources */,
+				7E3E9E632BE40C7A003BE33E /* ImageEditorViewModelProtocol.swift in Sources */,
+				7E3E9E792BE4AEA1003BE33E /* SplashScreenViewModelProtocol.swift in Sources */,
 				7E4919EE2BE22FEB00829B61 /* AuthorizationTestApp.swift in Sources */,
 				7E3E9E532BE3A7A5003BE33E /* AuthorizationViewModelProtocol.swift in Sources */,
+				7E3E9E602BE3F33C003BE33E /* ImageEditorViewModel.swift in Sources */,
+				7E3E9E762BE4AE84003BE33E /* SplashScreenViewModel.swift in Sources */,
 				7E3E9E592BE3AE06003BE33E /* PasswordResetViewModel.swift in Sources */,
 				7E3E9E3C2BE36C71003BE33E /* UserDTO.swift in Sources */,
 				7E3E9E442BE37CCF003BE33E /* ClearButtonModifier.swift in Sources */,
+				7E3E9E6A2BE41847003BE33E /* ImagePickerCoordinator.swift in Sources */,
 				7E22223E2BE2763E00D27EBD /* GoogleSignInButton.swift in Sources */,
 				7E3E9E472BE38258003BE33E /* MainRouter.swift in Sources */,
 				7E3E9E392BE2B54F003BE33E /* AuthorizationServiceProtocol.swift in Sources */,
 				7E491A0A2BE245D200829B61 /* BaseButtonView.swift in Sources */,
+				7E3E9E6E2BE42051003BE33E /* KeyChainStorage.swift in Sources */,
 				7E3E9E3F2BE373AC003BE33E /* AuthorizationView.swift in Sources */,
 				7E3E9E362BE2B51C003BE33E /* AuthorizationService.swift in Sources */,
 				7E3E9E5E2BE3AE47003BE33E /* PasswordResetViewModelProtocol.swift in Sources */,
 				7E2222082BE2543100D27EBD /* AppDelegate.swift in Sources */,
 				7E4919FE2BE2300E00829B61 /* RegistrationView.swift in Sources */,
+				7E3E9E672BE41714003BE33E /* AccessCameraView.swift in Sources */,
 				7E3E9E4A2BE38D26003BE33E /* ImageEditorView.swift in Sources */,
 				7E2222222BE268CB00D27EBD /* RegistrationViewModelProtocol.swift in Sources */,
+				7E3E9E742BE4AD28003BE33E /* SplashScreenView.swift in Sources */,
 				7E22224A2BE2A7B700D27EBD /* Resources.swift in Sources */,
 				7E2222252BE26B0200D27EBD /* UIConstants.swift in Sources */,
 				7E3E9E572BE3AD4F003BE33E /* PasswordResetView.swift in Sources */,
@@ -620,13 +708,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AuthorizationTest/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = V7HYWRF575;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AuthorizationTest/App/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This apps needs camera to fatch photo";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -654,13 +743,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AuthorizationTest/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = V7HYWRF575;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AuthorizationTest/App/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This apps needs camera to fatch photo";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -718,6 +808,14 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 10.25.0;
+			};
+		};
+		7E3E9E6F2BE4208F003BE33E /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess";
+			requirement = {
+				branch = master;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -782,6 +880,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7E2222262BE26F7000D27EBD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseDatabase;
+		};
+		7E3E9E702BE4208F003BE33E /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7E3E9E6F2BE4208F003BE33E /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

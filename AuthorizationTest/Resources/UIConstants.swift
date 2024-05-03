@@ -40,4 +40,10 @@ enum UIConstants {
     enum PasswordResetView {
         static let vStackSpacing: CGFloat = 20
     }
+    
+    enum ImageEditorViewController {
+        static let vStackSpacing: CGFloat = 20
+        static let systemImageFont: CGFloat = 100
+        static let navbarImageFont: CGFloat = 24
+    }
 }

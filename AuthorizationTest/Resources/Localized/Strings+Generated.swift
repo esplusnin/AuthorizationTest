@@ -26,6 +26,10 @@ internal enum Strings {
     /// Авторизация
     internal static let title = Strings.tr("Localizable", "authorization.title", fallback: "Авторизация")
   }
+  internal enum ImageEditor {
+    /// Выберите изображение из библиотеки
+    internal static let choosePhoto = Strings.tr("Localizable", "imageEditor.choosePhoto", fallback: "Выберите изображение из библиотеки")
+  }
   internal enum Registration {
     /// Повторите пароль
     internal static let confirmPassword = Strings.tr("Localizable", "registration.confirmPassword", fallback: "Повторите пароль")
@@ -57,6 +61,10 @@ internal enum Strings {
       /// Один из символов должен быть заглавным
       internal static let uppercasedLetter = Strings.tr("Localizable", "registration.prompt.uppercasedLetter", fallback: "Один из символов должен быть заглавным")
     }
+  }
+  internal enum SplashScreen {
+    /// AuthorizationTetst
+    internal static let title = Strings.tr("Localizable", "splashScreen.title", fallback: "AuthorizationTetst")
   }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length

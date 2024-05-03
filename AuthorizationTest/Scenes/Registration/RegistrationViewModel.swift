@@ -6,6 +6,7 @@ final class RegistrationViewModel: RegistrationViewModelProtocol {
     // MARK: - Dependencies:
     weak var router: MainRouter?
     
+    private(set) var keyChainStorage = KeyChainStorage()
     private(set) var authorizationService: AuthorizationServiceProtocol
     
     // MARK: - Publishers:
@@ -48,7 +49,8 @@ final class RegistrationViewModel: RegistrationViewModelProtocol {
         await changeIsLoadingState()
 
         do {
-            let _ = try await authorizationService.signInWithGoogle()
+            let userInfo = try await authorizationService.signInWithGoogle()
+            saveNew(userInfo)
             await router?.goTo(.imageEditor)
         } catch {
             print(error.localizedDescription)
@@ -61,6 +63,12 @@ final class RegistrationViewModel: RegistrationViewModelProtocol {
     @MainActor
     private func changeIsLoadingState() {
         isLoading.toggle()
+    }
+    
+    private func saveNew(_ userInfo: UserDTO) {
+        Task {
+            await keyChainStorage.setNewValue(with: userInfo)
+        }
     }
     
     private func setupEmailValidationObserver() {

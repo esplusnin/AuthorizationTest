@@ -5,6 +5,7 @@ final class MainRouter: ObservableObject {
     
     // MARK: - Constatns and Variables:
     enum RouterDestination {
+        case registration
         case authorization
         case imageEditor
     }
