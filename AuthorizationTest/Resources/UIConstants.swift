@@ -46,4 +46,8 @@ enum UIConstants {
         static let systemImageFont: CGFloat = 100
         static let navbarImageFont: CGFloat = 24
     }
+    
+    enum ImageEditorToolbarGroupView {
+        static let rotateDegrees: CGFloat = 90
+    }
 }

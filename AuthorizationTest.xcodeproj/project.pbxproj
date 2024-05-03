@@ -60,6 +60,8 @@
 		7E491A052BE234AF00829B61 /* InputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E491A042BE234AF00829B61 /* InputTextField.swift */; };
 		7E491A072BE23EFA00829B61 /* ClueTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E491A062BE23EFA00829B61 /* ClueTextView.swift */; };
 		7E491A0A2BE245D200829B61 /* BaseButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E491A092BE245D200829B61 /* BaseButtonView.swift */; };
+		7E4B1D5E2BE4C6A6005E5113 /* ScrollableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4B1D5D2BE4C6A6005E5113 /* ScrollableImageView.swift */; };
+		7E4B1D602BE4C9F0005E5113 /* ImageEditorToolbarGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4B1D5F2BE4C9F0005E5113 /* ImageEditorToolbarGroupView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,6 +108,8 @@
 		7E491A042BE234AF00829B61 /* InputTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextField.swift; sourceTree = "<group>"; };
 		7E491A062BE23EFA00829B61 /* ClueTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClueTextView.swift; sourceTree = "<group>"; };
 		7E491A092BE245D200829B61 /* BaseButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButtonView.swift; sourceTree = "<group>"; };
+		7E4B1D5D2BE4C6A6005E5113 /* ScrollableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableImageView.swift; sourceTree = "<group>"; };
+		7E4B1D5F2BE4C9F0005E5113 /* ImageEditorToolbarGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEditorToolbarGroupView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,6 +268,8 @@
 			isa = PBXGroup;
 			children = (
 				7E3E9E662BE41714003BE33E /* AccessCameraView.swift */,
+				7E4B1D5F2BE4C9F0005E5113 /* ImageEditorToolbarGroupView.swift */,
+				7E4B1D5D2BE4C6A6005E5113 /* ScrollableImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -419,7 +425,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7E4919F82BE22FED00829B61 /* Build configuration list for PBXNativeTarget "AuthorizationTest" */;
 			buildPhases = (
-				7E2222462BE27F0200D27EBD /* SwiftGen */,
+				7E4B1D612BE4EDC3005E5113 /* SwiftGen */,
 				7E4919E62BE22FEB00829B61 /* Sources */,
 				7E4919E72BE22FEB00829B61 /* Frameworks */,
 				7E4919E82BE22FEB00829B61 /* Resources */,
@@ -502,7 +508,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		7E2222462BE27F0200D27EBD /* SwiftGen */ = {
+		7E4B1D612BE4EDC3005E5113 /* SwiftGen */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
@@ -548,6 +554,8 @@
 				7E3E9E392BE2B54F003BE33E /* AuthorizationServiceProtocol.swift in Sources */,
 				7E491A0A2BE245D200829B61 /* BaseButtonView.swift in Sources */,
 				7E3E9E6E2BE42051003BE33E /* KeyChainStorage.swift in Sources */,
+				7E4B1D5E2BE4C6A6005E5113 /* ScrollableImageView.swift in Sources */,
+				7E4B1D602BE4C9F0005E5113 /* ImageEditorToolbarGroupView.swift in Sources */,
 				7E3E9E3F2BE373AC003BE33E /* AuthorizationView.swift in Sources */,
 				7E3E9E362BE2B51C003BE33E /* AuthorizationService.swift in Sources */,
 				7E3E9E5E2BE3AE47003BE33E /* PasswordResetViewModelProtocol.swift in Sources */,
@@ -616,9 +624,11 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_APP_SANDBOX = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
+				ENABLE_TESTABILITY = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				ENABLE_USER_SELECTED_FILES = "";
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -679,9 +689,11 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_APP_SANDBOX = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				ENABLE_USER_SELECTED_FILES = "";
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

@@ -1,42 +1,84 @@
 import Combine
 import SwiftUI
 import PhotosUI
+import CoreImage
+import CoreImage.CIFilterBuiltins
 
 final class ImageEditorViewModel: ImageEditorViewModelProtocol {
     
     // MARK: - Publishers:
-    @Published var selectedImage: PhotosPickerItem?
-    @Published var image: Image?
+    @Published var isLoading = false
+
+    @Published var selectedItem: PhotosPickerItem?
+    @Published var processedImage: Image?
+    
+    @Published var rotation: CGFloat = 0
+    @Published var currentZoom = 0.0
+    @Published var totalZoom = 1.0
     
     // MARK: - Constans and Variables:
     private var cancellable = Set<AnyCancellable>()
     
+    private let context = CIContext()
+    private var beginImage: CIImage?
+    private var currentFilter: CIFilter = .bloom()
+    
     // MARK: - Lifecycle:
     init() {
         setupSelectedImageObserver()
+        setupImagesObserver()
     }
     
     // MARK: - Public Methods:
     func loadImage() {
+        isLoading.toggle()
+        
         Task {
-            if let loadedImage = try? await selectedImage?.loadTransferable(type: Image.self) {
-                await setup(loadedImage)
-            }
+            guard let imageData = try await selectedItem?.loadTransferable(type: Data.self),
+                  let inputImage = UIImage(data: imageData) else { return }
+            
+            beginImage = CIImage(image: inputImage)
+            
+            currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
+            await applyProcessing()
         }
+    }
+    
+    func applyFilter(_ filter: CIFilter) {
+        currentFilter = filter
+        loadImage()
     }
     
     // MARK: - Private Methods:
     private func setupSelectedImageObserver() {
-        $selectedImage
+        $selectedItem
+            .sink { [weak self] item in
+                guard let self else { return }
+                if item != nil {
+                    self.loadImage()
+                }
+            }
+            .store(in: &cancellable)
+    }
+    
+    private func setupImagesObserver() {
+        $processedImage
             .sink { [weak self] _ in
                 guard let self else { return }
-                self.loadImage()
+                self.totalZoom = 1.0
+                self.rotation = 0
             }
             .store(in: &cancellable)
     }
     
     @MainActor
-    private func setup(_ loadedImage: Image) {
-        image = loadedImage
+    private func applyProcessing() {
+        isLoading.toggle()
+        
+        guard let outputImage = currentFilter.outputImage,
+              let cgImage = context.createCGImage(outputImage, from: outputImage.extent) else { return }
+
+        let uiImage = UIImage(cgImage: cgImage)
+        processedImage = Image(uiImage: uiImage)
     }
 }

@@ -7,6 +7,7 @@ enum Resources {
         static let lockClosed = "lock"
         static let photo = "photo"
         static let camera = "camera"
+        static let rotate = "arrow.triangle.2.circlepath"
     }
     
     enum Identifiers {

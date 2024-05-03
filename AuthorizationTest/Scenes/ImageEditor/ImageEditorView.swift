@@ -8,6 +8,7 @@ struct ImageEditorView<ViewModel>: View where ViewModel: ImageEditorViewModelPro
     
     // MARK: - Bindings:
     @State var showCamera = false
+    @State var showFilters = false
     
     // MARK: - UI:
     var body: some View {
@@ -17,12 +18,18 @@ struct ImageEditorView<ViewModel>: View where ViewModel: ImageEditorViewModelPro
                 .animation(.default, value: showCamera)
             
             VStack {
-                PhotosPicker(selection: $viewModel.selectedImage) {
-                    if let image = viewModel.image {
-                        image
-                            .resizable()
-                            .scaledToFill()
-                            .clipped()
+                Spacer()
+                
+                PhotosPicker(selection: $viewModel.selectedItem) {
+                    if let image = viewModel.processedImage {
+                        ScrollableImageView(currentZoom: $viewModel.currentZoom,
+                                            totalZoom: $viewModel.totalZoom) {
+                            image
+                                .resizable()
+                                .scaledToFit()
+                                .rotationEffect(.degrees(viewModel.rotation))
+                                .animation(.default, value: viewModel.rotation)
+                        }
                     } else {
                         VStack(spacing: UIConstants.ImageEditorViewController.vStackSpacing) {
                             Image(systemName: Resources.Images.photo)
@@ -34,26 +41,57 @@ struct ImageEditorView<ViewModel>: View where ViewModel: ImageEditorViewModelPro
                         }
                     }
                 }
+                
+                Spacer()
+                
+                if let image = viewModel.processedImage {
+                    HStack {
+                        Button {
+                            showFilters.toggle()
+                        } label: {
+                            Image(systemName: "camera.filters")
+                                .font(.system(size: UIConstants.ImageEditorViewController.navbarImageFont))
+                        }
+                        
+                        Spacer()
+                        
+                        ShareLink(item: image,
+                                  preview: SharePreview("billede", image: image)) {
+                            Label("Share Image", systemImage: "square.and.arrow.up")
+                        }
+                    }
+                }
             }
             .padding(.horizontal)
         }
         .navigationBarBackButtonHidden()
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
-            ToolbarItem(placement: .topBarTrailing) {
-                Button {
+            ToolbarItemGroup {
+                ImageEditorToolbarGroupView(rotation: $viewModel.rotation) {
                     showCamera.toggle()
-                } label: {
-                    Image(systemName: Resources.Images.camera)
-                        .font(.system(size: UIConstants.ImageEditorViewController.navbarImageFont))
                 }
             }
         }
         .fullScreenCover(isPresented: $showCamera) {
-            AccessCameraView(selectedImage: $viewModel.image)
+            AccessCameraView(selectedImage: $viewModel.processedImage)
+        }
+        .confirmationDialog("Filters", isPresented: $showFilters) {
+            Button("Crystallize") { viewModel.applyFilter(.crystallize()) }
+            Button("Edges") { viewModel.applyFilter(.edges()) }
+            Button("colorClamp") { viewModel.applyFilter(.colorClamp()) }
+            Button("bloom") { viewModel.applyFilter(.bloom()) }
+            Button("toneCurve") { viewModel.applyFilter(.toneCurve()) }
+            Button("Gaussian Blur") { viewModel.applyFilter(.gaussianBlur()) }
+            Button("Pixellate") { viewModel.applyFilter(.pixellate()) }
+            Button("Sepia Tone") { viewModel.applyFilter(.sepiaTone()) }
+            Button("Unsharp Mask") { viewModel.applyFilter(.unsharpMask()) }
+            Button("Vignette") { viewModel.applyFilter(.vignette()) }
+            Button("Cancel", role: .cancel) {}
         }
     }
 }
+
 
 #Preview {
     ImageEditorView(viewModel: ImageEditorViewModel())
