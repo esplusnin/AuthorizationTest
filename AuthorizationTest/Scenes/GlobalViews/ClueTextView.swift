@@ -28,6 +28,7 @@ struct ClueTextView: View {
     // MARK: - Bindings:
     var isValid: Bool
     
+    // MARK: - UI
     var body: some View {
         HStack {
             if state == .username {

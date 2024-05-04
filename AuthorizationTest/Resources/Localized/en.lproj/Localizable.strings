@@ -38,6 +38,7 @@
 
 "imageDrawing.cancel" = "Выйти";
 "imageDrawing.save" = "Сохранить";
+"imageDrawing.imageSaved" = "The image was saved ✅";
 
 "drawingTextPanel.add" = "Add";
 "drawingTextPanel.cancel" = "Cancel";

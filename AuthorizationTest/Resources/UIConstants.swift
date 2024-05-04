@@ -50,6 +50,7 @@ enum UIConstants {
     
     enum ImageEditorToolbarGroupView {
         static let rotateDegrees: CGFloat = 90
+        static let font: CGFloat = 20
     }
     
     enum ImageDrawingView {
@@ -73,4 +74,11 @@ enum UIConstants {
         static let startRange = 10
         static let endRande = 40
     }
+    
+    enum LoaderView {
+        static let cornerRadius: CGFloat = 10
+        static let side: CGFloat = 70
+        static let opacity: CGFloat = 0.1
+    }
+
 }

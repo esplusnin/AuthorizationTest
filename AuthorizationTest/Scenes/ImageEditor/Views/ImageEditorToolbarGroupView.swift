@@ -23,6 +23,6 @@ struct ImageEditorToolbarGroupView: View {
                 Image(systemName: Resources.Images.camera)
             }
         }
-        .font(.system(size: 20))
+        .font(.system(size: UIConstants.ImageEditorToolbarGroupView.font))
     }
 }

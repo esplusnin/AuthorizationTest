@@ -6,11 +6,8 @@ struct ImageDrawingView<ViewModel>: View where ViewModel: ImageDrawingViewModelP
     // MARK: - Dependencies:
     @ObservedObject var viewModel: ViewModel
     
-    // MARK: - Bindings:
-    @Binding var imageData: Data?
-    
-    // MARK: - UI:
-    @State var canvas = PKCanvasView()
+    // MARK: - Constants and Variables:
+    var imageData: Data?
     
     var body: some View {
         ZStack {
@@ -21,27 +18,21 @@ struct ImageDrawingView<ViewModel>: View where ViewModel: ImageDrawingViewModelP
                 
                 GeometryReader { proxy -> AnyView in
                     
-                    let size = proxy.frame(in: .global)
+                    let rect = proxy.frame(in: .global)
                     
                     DispatchQueue.main.async {
-                        if viewModel.rect == .zero {
-                            viewModel.rect = size
-                        }
+                        viewModel.rect = rect
                     }
                     
                     return AnyView(
-                        ZStack {
-                            DrawingViewRepresentable(canvas: $canvas,
-                                                     isDrawing: $viewModel.isDrawing,
-                                                     pencilType: $viewModel.pencilType,
-                                                     color: $viewModel.color,
-                                                     imageData: $imageData,
-                                                     rect: size)
-                            
-                            if viewModel.textBox.text != "" && !viewModel.textBoxShow {
-                                TextBoxView(textBox: $viewModel.textBox)
-                            }
-                        })
+                        FullDrawingTextedCanvasView(canvas: $viewModel.canvas,
+                                                    isDrawing: $viewModel.isDrawing,
+                                                    pencilType: $viewModel.pencilType,
+                                                    color: $viewModel.color,
+                                                    textBox: $viewModel.textBox,
+                                                    imageData: imageData,
+                                                    rect: rect,
+                                                    isShow: viewModel.textBox.text != "" && !viewModel.textBoxShow)                        )
                 }
                 
                 DrawingToolsView(isDrawing: $viewModel.isDrawing,
@@ -54,13 +45,14 @@ struct ImageDrawingView<ViewModel>: View where ViewModel: ImageDrawingViewModelP
                 DrawingTextPanelView(textBox: $viewModel.textBox, textBoxShow: $viewModel.textBoxShow)
             }
         }
+        .alert(Strings.ImageDrawing.imageSaved, isPresented: $viewModel.showAlert) {}
     }
     
     // MARK: - Private Methods:
     private func saveDrawing() {
         UIGraphicsBeginImageContextWithOptions(viewModel.rect.size, false, 0)
-        canvas.drawHierarchy(in: CGRect(origin: .zero, size: viewModel.rect.size),
-                             afterScreenUpdates: true)
+        viewModel.canvas.drawHierarchy(in: CGRect(origin: .zero, size: viewModel.rect.size),
+                                       afterScreenUpdates: true)
         
         let generatedImage = UIGraphicsGetImageFromCurrentImageContext()
         
@@ -78,12 +70,13 @@ struct ImageDrawingView<ViewModel>: View where ViewModel: ImageDrawingViewModelP
                                      afterScreenUpdates: true)
             
             controller.backgroundColor = .clear
-            canvas.backgroundColor = .clear
+            viewModel.canvas.backgroundColor = .clear
             
             UIGraphicsEndImageContext()
             
             if let generatedImage {
-                viewModel.updateImageAction(generatedImage)
+                viewModel.showAlert.toggle()
+                viewModel.savedImage = generatedImage
                 UIImageWriteToSavedPhotosAlbum(generatedImage, nil, nil, nil)
             }
         }
@@ -91,5 +84,5 @@ struct ImageDrawingView<ViewModel>: View where ViewModel: ImageDrawingViewModelP
 }
 
 #Preview {
-    ImageDrawingView(viewModel: ImageDrawingViewModel(action: { _ in }), imageData: .constant(Data()))
+    ImageDrawingView(viewModel: ImageDrawingViewModel(action: { _ in } ), imageData: Data())
 }

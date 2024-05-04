@@ -6,6 +6,7 @@ struct SplashScreenView<ViewModel>: View where ViewModel: SplashScreenViewModelP
     @ObservedObject var viewModel: ViewModel
     @ObservedObject var router: MainRouter
     
+    // MARK: - Classes:
     @StateObject var authorizationService = AuthorizationService()
     
     // MARK: - UI:

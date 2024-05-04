@@ -61,7 +61,7 @@ final class RegistrationViewModel: RegistrationViewModelProtocol {
     func signInWithGoogle() {
         Task {
             await changeIsLoadingState()
-
+            
             do {
                 let userInfo = try await authorizationService.signInWithGoogle()
                 saveNew(userInfo)

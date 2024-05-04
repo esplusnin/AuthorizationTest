@@ -11,15 +11,14 @@ final class ImageEditorViewModel: ImageEditorViewModelProtocol {
 
     @Published var selectedItem: PhotosPickerItem?
     @Published var processedImage: Image?
-    @Published var imageData: Data?
-    
     @Published var rotation: CGFloat = 0
     @Published var currentZoom = 0.0
     @Published var totalZoom = 1.0
     
     // MARK: - Constans and Variables:
+    var imageData: Data?
+
     private var cancellable = Set<AnyCancellable>()
-    
     private let context = CIContext()
     private var beginImage: CIImage?
     private var currentFilter: CIFilter?
@@ -60,6 +59,7 @@ final class ImageEditorViewModel: ImageEditorViewModelProtocol {
         loadImage()
     }
     
+    @MainActor
     func updateEdited(_ uiImage: UIImage) {
         let image = Image(uiImage: uiImage)
         let data = uiImage.pngData()

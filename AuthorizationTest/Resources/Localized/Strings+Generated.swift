@@ -51,6 +51,8 @@ internal enum Strings {
   internal enum ImageDrawing {
     /// Выйти
     internal static let cancel = Strings.tr("Localizable", "imageDrawing.cancel", fallback: "Выйти")
+    /// Изображение успешно сохранено ✅
+    internal static let imageSaved = Strings.tr("Localizable", "imageDrawing.imageSaved", fallback: "Изображение успешно сохранено ✅")
     /// Save
     internal static let save = Strings.tr("Localizable", "imageDrawing.save", fallback: "Save")
   }

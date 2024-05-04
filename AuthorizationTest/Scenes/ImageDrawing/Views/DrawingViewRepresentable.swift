@@ -8,9 +8,9 @@ struct DrawingViewRepresentable: UIViewRepresentable {
     @Binding var isDrawing: Bool
     @Binding var pencilType: PKInkingTool.InkType
     @Binding var color: Color
-    @Binding var imageData: Data?
     
     // MARK: - Constants and Variables:
+    var imageData: Data?
     let eraser = PKEraserTool(.bitmap)
     let rect: CGRect
     

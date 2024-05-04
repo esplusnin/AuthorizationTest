@@ -30,6 +30,7 @@ struct ImageEditorView<ViewModel>: View where ViewModel: ImageEditorViewModelPro
                                 .scaledToFit()
                                 .rotationEffect(.degrees(viewModel.rotation))
                                 .animation(.default, value: viewModel.rotation)
+                                .animation(.smooth, value: viewModel.processedImage)
                         }
                     } else {
                         VStack(spacing: UIConstants.ImageEditorViewController.vStackSpacing) {
@@ -95,7 +96,7 @@ struct ImageEditorView<ViewModel>: View where ViewModel: ImageEditorViewModelPro
                 viewModel.updateEdited(image)
             }
             
-            ImageDrawingView(viewModel: imageViewModel, imageData: $viewModel.imageData)
+            ImageDrawingView(viewModel: imageViewModel, imageData: viewModel.imageData)
         }
         .confirmationDialog("Filters", isPresented: $showFilters) {
             Button("Crystallize") { viewModel.applyFilter(.crystallize()) }

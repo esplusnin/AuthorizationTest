@@ -9,6 +9,7 @@ struct AuthorizationView<ViewModel>: View where ViewModel: AuthorizationViewMode
     @FocusState var isFocused: Bool
     @State private var isSheetPresented = false
     
+    // MARK: - UI:
     var body: some View {
         ZStack {
             Color.universalWhite
