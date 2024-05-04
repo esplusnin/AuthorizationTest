@@ -51,8 +51,9 @@ struct PasswordResetView<ViewModel>: View where ViewModel: PasswordResetViewMode
                         Divider()
                         
                         BaseButtonView(title: Strings.PasswordResetView.resetPassword,
-                                       isUnlocked: viewModel.isUnlocked,
-                                       action: resetPassword)
+                                       isUnlocked: viewModel.isUnlocked) {
+                            viewModel.resetPassword()
+                        }
                         
                         Spacer()
                     }
@@ -65,11 +66,6 @@ struct PasswordResetView<ViewModel>: View where ViewModel: PasswordResetViewMode
         .onTapGesture {
             isFocused.toggle()
         }
-    }
-    
-    // MARK: - Private Methods:
-    private func resetPassword() {
-        viewModel.resetPassword()
     }
 }
 

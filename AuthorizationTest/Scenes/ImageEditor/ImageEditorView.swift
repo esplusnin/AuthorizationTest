@@ -9,6 +9,7 @@ struct ImageEditorView<ViewModel>: View where ViewModel: ImageEditorViewModelPro
     // MARK: - Bindings:
     @State var showCamera = false
     @State var showFilters = false
+    @State var showImageDrawer = false
     
     // MARK: - UI:
     var body: some View {
@@ -67,6 +68,14 @@ struct ImageEditorView<ViewModel>: View where ViewModel: ImageEditorViewModelPro
         .navigationBarBackButtonHidden()
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    showImageDrawer.toggle()
+                } label: {
+                    Image(systemName: "paintpalette")
+                }
+            }
+            
             ToolbarItemGroup {
                 ImageEditorToolbarGroupView(rotation: $viewModel.rotation) {
                     showCamera.toggle()
@@ -75,6 +84,9 @@ struct ImageEditorView<ViewModel>: View where ViewModel: ImageEditorViewModelPro
         }
         .fullScreenCover(isPresented: $showCamera) {
             AccessCameraView(selectedImage: $viewModel.processedImage)
+        }
+        .fullScreenCover(isPresented: $showImageDrawer) {
+            ImageDrawingView(viewModel: ImageDrawingViewModel(), imageData: $viewModel.imageData)
         }
         .confirmationDialog("Filters", isPresented: $showFilters) {
             Button("Crystallize") { viewModel.applyFilter(.crystallize()) }

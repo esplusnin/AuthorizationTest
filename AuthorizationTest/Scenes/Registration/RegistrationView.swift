@@ -55,12 +55,12 @@ struct RegistrationView<ViewModel>: View where ViewModel: RegistrationViewModelP
                             viewModel.isPasswordConfirmed &&
                             viewModel.isPasswordCapitalLetterValidated) {
                                 isFocused.toggle()
-                                createNewAccount()
+                                viewModel.createNewAccount()
                             }
                         
                         GoogleSignInButton {
                             isFocused.toggle()
-                            signInWithGoogle()
+                            viewModel.signInWithGoogle()
                         }
                         
                         HStack {
@@ -80,43 +80,32 @@ struct RegistrationView<ViewModel>: View where ViewModel: RegistrationViewModelP
                 .padding(.bottom, UIConstants.RegistrationView.bottomPadding)
                 .blur(radius: viewModel.isLoading ?
                       UIConstants.RegistrationView.blurValue : 0)
-                
-                if viewModel.isLoading {
-                    LoaderView()
-                }
             }
             .padding()
-            .navigationBarBackButtonHidden()
-            .toolbar {
-                ToolbarItem(placement: .principal) {
-                    Text(Strings.Registration.title)
-                        .font(.extraLargeBoldFont)
-                        .foregroundStyle(.universalBlue)
-                }
+            .padding(.top)
+            
+            if viewModel.isLoading {
+                LoaderView()
             }
-            .onTapGesture {
-                isFocused.toggle()
+        }
+        .navigationBarBackButtonHidden()
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                Text(Strings.Registration.title)
+                    .font(.extraLargeBoldFont)
+                    .foregroundStyle(.universalBlue)
             }
+        }
+        .onTapGesture {
+            isFocused.toggle()
         }
         .ignoresSafeArea(.keyboard)
-    }
-    
-    // MARK: - Private Methods:
-    private func createNewAccount() {
-        Task {
-            await viewModel.createNewAccount()
-        }
-    }
-    
-    private func signInWithGoogle() {
-        Task {
-            await viewModel.signInWithGoogle()
-        }
     }
 }
 
 #Preview {
     RegistrationView(
-        viewModel: RegistrationViewModel(authorizationService: AuthorizationService()))
+        viewModel: RegistrationViewModel(router: MainRouter(),
+                                         authorizationService: AuthorizationService()))
     .environmentObject(MainRouter())
 }

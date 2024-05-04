@@ -28,10 +28,10 @@ final class AuthorizationViewModel: AuthorizationViewModelProtocol {
     
     // MARK: - Public Methods:
     func signIn() {
-
         Task {
+            await changeLoadingStatus()
+
             do {
-                await changeLoadingStatus()
                 let userInfo = try await authorizationService.signIn(with: email, and: password)
                 saveNew(userInfo)
                 await router?.goTo(.imageEditor)

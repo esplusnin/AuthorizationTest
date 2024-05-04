@@ -62,6 +62,15 @@
 		7E491A0A2BE245D200829B61 /* BaseButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E491A092BE245D200829B61 /* BaseButtonView.swift */; };
 		7E4B1D5E2BE4C6A6005E5113 /* ScrollableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4B1D5D2BE4C6A6005E5113 /* ScrollableImageView.swift */; };
 		7E4B1D602BE4C9F0005E5113 /* ImageEditorToolbarGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4B1D5F2BE4C9F0005E5113 /* ImageEditorToolbarGroupView.swift */; };
+		7E4B1D642BE4F395005E5113 /* ImageDrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4B1D632BE4F395005E5113 /* ImageDrawingView.swift */; };
+		7E4B1D672BE4F3E6005E5113 /* DrawingViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4B1D662BE4F3E6005E5113 /* DrawingViewRepresentable.swift */; };
+		7E4B1D692BE50E12005E5113 /* DrawingToolsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4B1D682BE50E12005E5113 /* DrawingToolsView.swift */; };
+		7E4B1D6B2BE525C5005E5113 /* TextBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4B1D6A2BE525C5005E5113 /* TextBox.swift */; };
+		7E4B1D6D2BE53D51005E5113 /* ImageDrawingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4B1D6C2BE53D51005E5113 /* ImageDrawingViewModel.swift */; };
+		7E4B1D702BE53D88005E5113 /* ImageDrawingViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4B1D6F2BE53D88005E5113 /* ImageDrawingViewModelProtocol.swift */; };
+		7E4B1D722BE54376005E5113 /* TextAdditionalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4B1D712BE54376005E5113 /* TextAdditionalView.swift */; };
+		7E4B1D742BE6251C005E5113 /* TextBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4B1D732BE6251C005E5113 /* TextBoxView.swift */; };
+		7E4B1D762BE62ADE005E5113 /* DrawingTextPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4B1D752BE62ADE005E5113 /* DrawingTextPanelView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,6 +119,15 @@
 		7E491A092BE245D200829B61 /* BaseButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButtonView.swift; sourceTree = "<group>"; };
 		7E4B1D5D2BE4C6A6005E5113 /* ScrollableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableImageView.swift; sourceTree = "<group>"; };
 		7E4B1D5F2BE4C9F0005E5113 /* ImageEditorToolbarGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEditorToolbarGroupView.swift; sourceTree = "<group>"; };
+		7E4B1D632BE4F395005E5113 /* ImageDrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDrawingView.swift; sourceTree = "<group>"; };
+		7E4B1D662BE4F3E6005E5113 /* DrawingViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingViewRepresentable.swift; sourceTree = "<group>"; };
+		7E4B1D682BE50E12005E5113 /* DrawingToolsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingToolsView.swift; sourceTree = "<group>"; };
+		7E4B1D6A2BE525C5005E5113 /* TextBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBox.swift; sourceTree = "<group>"; };
+		7E4B1D6C2BE53D51005E5113 /* ImageDrawingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDrawingViewModel.swift; sourceTree = "<group>"; };
+		7E4B1D6F2BE53D88005E5113 /* ImageDrawingViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDrawingViewModelProtocol.swift; sourceTree = "<group>"; };
+		7E4B1D712BE54376005E5113 /* TextAdditionalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAdditionalView.swift; sourceTree = "<group>"; };
+		7E4B1D732BE6251C005E5113 /* TextBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBoxView.swift; sourceTree = "<group>"; };
+		7E4B1D752BE62ADE005E5113 /* DrawingTextPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingTextPanelView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				7E3E9E3B2BE36C71003BE33E /* UserDTO.swift */,
+				7E4B1D6A2BE525C5005E5113 /* TextBox.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -357,6 +376,7 @@
 				7E3E9E3D2BE37394003BE33E /* Authorization */,
 				7E3E9E552BE3AD30003BE33E /* PasswordResetView */,
 				7E3E9E482BE38D17003BE33E /* ImageEditor */,
+				7E4B1D622BE4F377005E5113 /* ImageDrawing */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -416,6 +436,37 @@
 				7E22223B2BE2724C00D27EBD /* GoogleService-Info.plist */,
 			);
 			path = AuthorizationService;
+			sourceTree = "<group>";
+		};
+		7E4B1D622BE4F377005E5113 /* ImageDrawing */ = {
+			isa = PBXGroup;
+			children = (
+				7E4B1D6E2BE53D7E005E5113 /* Protocols */,
+				7E4B1D652BE4F3DE005E5113 /* Views */,
+				7E4B1D632BE4F395005E5113 /* ImageDrawingView.swift */,
+				7E4B1D6C2BE53D51005E5113 /* ImageDrawingViewModel.swift */,
+			);
+			path = ImageDrawing;
+			sourceTree = "<group>";
+		};
+		7E4B1D652BE4F3DE005E5113 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7E4B1D662BE4F3E6005E5113 /* DrawingViewRepresentable.swift */,
+				7E4B1D682BE50E12005E5113 /* DrawingToolsView.swift */,
+				7E4B1D712BE54376005E5113 /* TextAdditionalView.swift */,
+				7E4B1D732BE6251C005E5113 /* TextBoxView.swift */,
+				7E4B1D752BE62ADE005E5113 /* DrawingTextPanelView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7E4B1D6E2BE53D7E005E5113 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				7E4B1D6F2BE53D88005E5113 /* ImageDrawingViewModelProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -537,9 +588,12 @@
 				7E3E9E412BE373DB003BE33E /* AuthorizationViewModel.swift in Sources */,
 				7E491A072BE23EFA00829B61 /* ClueTextView.swift in Sources */,
 				7E3E9E502BE39BD9003BE33E /* LoaderView.swift in Sources */,
+				7E4B1D672BE4F3E6005E5113 /* DrawingViewRepresentable.swift in Sources */,
 				7E22221F2BE2688400D27EBD /* RegistrationViewModel.swift in Sources */,
+				7E4B1D6B2BE525C5005E5113 /* TextBox.swift in Sources */,
 				7E491A052BE234AF00829B61 /* InputTextField.swift in Sources */,
 				7E3E9E632BE40C7A003BE33E /* ImageEditorViewModelProtocol.swift in Sources */,
+				7E4B1D742BE6251C005E5113 /* TextBoxView.swift in Sources */,
 				7E3E9E792BE4AEA1003BE33E /* SplashScreenViewModelProtocol.swift in Sources */,
 				7E4919EE2BE22FEB00829B61 /* AuthorizationTestApp.swift in Sources */,
 				7E3E9E532BE3A7A5003BE33E /* AuthorizationViewModelProtocol.swift in Sources */,
@@ -549,6 +603,7 @@
 				7E3E9E3C2BE36C71003BE33E /* UserDTO.swift in Sources */,
 				7E3E9E442BE37CCF003BE33E /* ClearButtonModifier.swift in Sources */,
 				7E3E9E6A2BE41847003BE33E /* ImagePickerCoordinator.swift in Sources */,
+				7E4B1D6D2BE53D51005E5113 /* ImageDrawingViewModel.swift in Sources */,
 				7E22223E2BE2763E00D27EBD /* GoogleSignInButton.swift in Sources */,
 				7E3E9E472BE38258003BE33E /* MainRouter.swift in Sources */,
 				7E3E9E392BE2B54F003BE33E /* AuthorizationServiceProtocol.swift in Sources */,
@@ -559,12 +614,17 @@
 				7E3E9E3F2BE373AC003BE33E /* AuthorizationView.swift in Sources */,
 				7E3E9E362BE2B51C003BE33E /* AuthorizationService.swift in Sources */,
 				7E3E9E5E2BE3AE47003BE33E /* PasswordResetViewModelProtocol.swift in Sources */,
+				7E4B1D642BE4F395005E5113 /* ImageDrawingView.swift in Sources */,
 				7E2222082BE2543100D27EBD /* AppDelegate.swift in Sources */,
 				7E4919FE2BE2300E00829B61 /* RegistrationView.swift in Sources */,
 				7E3E9E672BE41714003BE33E /* AccessCameraView.swift in Sources */,
+				7E4B1D762BE62ADE005E5113 /* DrawingTextPanelView.swift in Sources */,
+				7E4B1D722BE54376005E5113 /* TextAdditionalView.swift in Sources */,
 				7E3E9E4A2BE38D26003BE33E /* ImageEditorView.swift in Sources */,
 				7E2222222BE268CB00D27EBD /* RegistrationViewModelProtocol.swift in Sources */,
+				7E4B1D702BE53D88005E5113 /* ImageDrawingViewModelProtocol.swift in Sources */,
 				7E3E9E742BE4AD28003BE33E /* SplashScreenView.swift in Sources */,
+				7E4B1D692BE50E12005E5113 /* DrawingToolsView.swift in Sources */,
 				7E22224A2BE2A7B700D27EBD /* Resources.swift in Sources */,
 				7E2222252BE26B0200D27EBD /* UIConstants.swift in Sources */,
 				7E3E9E572BE3AD4F003BE33E /* PasswordResetView.swift in Sources */,
@@ -724,7 +784,9 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AuthorizationTest/App/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "This apps needs camera to fatch photo";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Our application needs permission to write photos";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
@@ -759,7 +821,9 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AuthorizationTest/App/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "This apps needs camera to fatch photo";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Our application needs permission to write photos";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";

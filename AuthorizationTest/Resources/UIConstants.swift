@@ -35,6 +35,7 @@ enum UIConstants {
     
     enum AuthorizationView {
         static let vStackSpacing: CGFloat = 20
+        static let blurValue: CGFloat = 20
     }
     
     enum PasswordResetView {
@@ -49,5 +50,27 @@ enum UIConstants {
     
     enum ImageEditorToolbarGroupView {
         static let rotateDegrees: CGFloat = 90
+    }
+    
+    enum ImageDrawingView {
+        static let font: CGFloat = 20
+    }
+    
+    enum DrawingToolsView {
+        static let hStackSpacing: CGFloat = 20
+        static let fractionValue: CGFloat = 0.2
+        static let font: CGFloat = 25
+    }
+    
+    enum TextAdditionalView {
+        static let hStackSpacing: CGFloat = 40
+    }
+    
+    enum DrawingTextPanelView {
+        static let opacity: CGFloat = 0.75
+        static let hStackSpacing: CGFloat = 20
+        static let fontSize: CGFloat = 35
+        static let startRange = 10
+        static let endRande = 40
     }
 }

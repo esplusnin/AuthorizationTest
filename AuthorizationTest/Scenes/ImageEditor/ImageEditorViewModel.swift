@@ -11,6 +11,7 @@ final class ImageEditorViewModel: ImageEditorViewModelProtocol {
 
     @Published var selectedItem: PhotosPickerItem?
     @Published var processedImage: Image?
+    @Published var imageData: Data?
     
     @Published var rotation: CGFloat = 0
     @Published var currentZoom = 0.0
@@ -31,12 +32,15 @@ final class ImageEditorViewModel: ImageEditorViewModelProtocol {
     
     // MARK: - Public Methods:
     func loadImage() {
-        isLoading.toggle()
-        
         Task {
+            await changeLoadingStatus()
             guard let imageData = try await selectedItem?.loadTransferable(type: Data.self),
-                  let inputImage = UIImage(data: imageData) else { return }
+                  let inputImage = UIImage(data: imageData) else {
+                await changeLoadingStatus()
+                return
+            }
             
+            self.imageData = imageData
             beginImage = CIImage(image: inputImage)
             
             currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
@@ -50,6 +54,22 @@ final class ImageEditorViewModel: ImageEditorViewModelProtocol {
     }
     
     // MARK: - Private Methods:
+    @MainActor
+    private func changeLoadingStatus() {
+        isLoading.toggle()
+    }
+    
+    @MainActor
+    private func applyProcessing() {
+        changeLoadingStatus()
+
+        guard let outputImage = currentFilter.outputImage,
+              let cgImage = context.createCGImage(outputImage, from: outputImage.extent) else { return }
+
+        let uiImage = UIImage(cgImage: cgImage)
+        processedImage = Image(uiImage: uiImage)
+    }
+    
     private func setupSelectedImageObserver() {
         $selectedItem
             .sink { [weak self] item in
@@ -69,16 +89,5 @@ final class ImageEditorViewModel: ImageEditorViewModelProtocol {
                 self.rotation = 0
             }
             .store(in: &cancellable)
-    }
-    
-    @MainActor
-    private func applyProcessing() {
-        isLoading.toggle()
-        
-        guard let outputImage = currentFilter.outputImage,
-              let cgImage = context.createCGImage(outputImage, from: outputImage.extent) else { return }
-
-        let uiImage = UIImage(cgImage: cgImage)
-        processedImage = Image(uiImage: uiImage)
     }
 }

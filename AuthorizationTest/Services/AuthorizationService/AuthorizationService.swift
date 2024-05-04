@@ -44,7 +44,6 @@ extension AuthorizationService: AuthorizationServiceProtocol {
         if let user = result?.user,
            let email = user.email,
            let token = user.refreshToken {
-            print("NEW ACCOUNT")
             let userDTO = UserDTO(id: user.uid, email: email, token: token)
             try await sendEmailVerification()
             
@@ -60,7 +59,6 @@ extension AuthorizationService: AuthorizationServiceProtocol {
         if let user = result?.user,
            let email = user.email,
            let token = user.refreshToken {
-            print("SIGN IN")
             let userDTO = UserDTO(id: user.uid, email: email, token: token)
             return userDTO
         } else {
@@ -83,7 +81,6 @@ extension AuthorizationService: AuthorizationServiceProtocol {
         if let user = authResult?.user,
            let email = user.email,
            let token = user.refreshToken {
-            print("GOOGLE")
             return UserDTO(id: user.uid, email: email, token: token)
         } else {
             throw AuthorizationError.signInByGoogleError

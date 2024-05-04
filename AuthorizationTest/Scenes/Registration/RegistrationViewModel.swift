@@ -24,7 +24,8 @@ final class RegistrationViewModel: RegistrationViewModelProtocol {
     private var cancellable = Set<AnyCancellable>()
     
     // MARK: - Lifecycle:
-    init(authorizationService: AuthorizationServiceProtocol) {
+    init(router: MainRouter, authorizationService: AuthorizationServiceProtocol) {
+        self.router = router
         self.authorizationService = authorizationService
         setupEmailValidationObserver()
         setupPasswordLengthValidationObserver()
@@ -32,31 +33,36 @@ final class RegistrationViewModel: RegistrationViewModelProtocol {
     }
     
     // MARK: - Public Methods:
-    func createNewAccount() async {
-        await changeIsLoadingState()
-
-        do {
-            let _ = try await authorizationService.createNewAccount(with: email, and: password)
-            await router?.goTo(.imageEditor)
-        } catch {
-            print(error.localizedDescription)
+    func createNewAccount() {
+        Task {
+            await changeIsLoadingState()
+            
+            do {
+                let userInfo = try await authorizationService.createNewAccount(with: email, and: password)
+                saveNew(userInfo)
+                await router?.goTo(.imageEditor)
+            } catch {
+                print(error.localizedDescription)
+            }
+            
+            await changeIsLoadingState()
         }
-        
-        await changeIsLoadingState()
     }
     
-    func signInWithGoogle() async {
-        await changeIsLoadingState()
+    func signInWithGoogle() {
+        Task {
+            await changeIsLoadingState()
 
-        do {
-            let userInfo = try await authorizationService.signInWithGoogle()
-            saveNew(userInfo)
-            await router?.goTo(.imageEditor)
-        } catch {
-            print(error.localizedDescription)
+            do {
+                let userInfo = try await authorizationService.signInWithGoogle()
+                saveNew(userInfo)
+                await router?.goTo(.imageEditor)
+            } catch {
+                print(error.localizedDescription)
+            }
+            
+            await changeIsLoadingState()
         }
-        
-        await changeIsLoadingState()
     }
     
     // MARK: - Private Methods:

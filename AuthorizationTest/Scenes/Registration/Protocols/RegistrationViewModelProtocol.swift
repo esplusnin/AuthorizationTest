@@ -11,6 +11,6 @@ protocol RegistrationViewModelProtocol: ObservableObject {
     var isPasswordConfirmed: Bool { get }
     var isLoading: Bool { get }
     
-    func createNewAccount() async
-    func signInWithGoogle() async
+    func createNewAccount()
+    func signInWithGoogle()
 }

@@ -10,15 +10,15 @@ struct AuthorizationView<ViewModel>: View where ViewModel: AuthorizationViewMode
     @State private var isSheetPresented = false
     
     var body: some View {
-        GeometryReader { _ in
-            ZStack {
-                Color.universalWhite
-                    .ignoresSafeArea()
-                
+        ZStack {
+            Color.universalWhite
+                .ignoresSafeArea()
+            
+            GeometryReader { _ in
                 VStack(spacing: UIConstants.AuthorizationView.vStackSpacing) {
                     InputTextField(inputText: $viewModel.email, state: .username)
                         .focused($isFocused)
-
+                    
                     InputTextField(inputText: $viewModel.password, state: .password)
                         .focused($isFocused)
                     
@@ -26,7 +26,7 @@ struct AuthorizationView<ViewModel>: View where ViewModel: AuthorizationViewMode
                     
                     BaseButtonView(title: Strings.Registration.singIn,
                                    isUnlocked: viewModel.isReadyToSignIn) {
-                        signIn()
+                        viewModel.signIn()
                     }
                     
                     HStack {
@@ -47,35 +47,30 @@ struct AuthorizationView<ViewModel>: View where ViewModel: AuthorizationViewMode
                 }
                 .padding()
                 .padding(.bottom, UIConstants.RegistrationView.bottomPadding)
-                .blur(radius: viewModel.isLoading ? 20 : 0)
-                
-                if viewModel.isLoading {
-                    LoaderView()
-                }
+                .blur(radius: viewModel.isLoading ? UIConstants.AuthorizationView.blurValue : 0)
             }
-            .toolbarRole(.editor)
-            .toolbar {
-                ToolbarItem(placement: .principal) {
-                    Text(Strings.Authorization.title)
-                        .font(.extraLargeBoldFont)
-                        .foregroundStyle(.universalBlue)
-                }
-            }
-            .onTapGesture {
-                isFocused.toggle()
-            }
-            .sheet(isPresented: $isSheetPresented) {
-                PasswordResetView(
-                    viewModel: PasswordResetViewModel(
-                        authorizationService: viewModel.authorizationService))
+            .ignoresSafeArea(.keyboard)
+            
+            if viewModel.isLoading {
+                LoaderView()
             }
         }
-        .ignoresSafeArea(.keyboard)
-    }
-    
-    // MARK: - Private Methods:
-    private func signIn() {
-        viewModel.signIn()
+        .toolbarRole(.editor)
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                Text(Strings.Authorization.title)
+                    .font(.extraLargeBoldFont)
+                    .foregroundStyle(.universalBlue)
+            }
+        }
+        .onTapGesture {
+            isFocused.toggle()
+        }
+        .sheet(isPresented: $isSheetPresented) {
+            PasswordResetView(
+                viewModel: PasswordResetViewModel(
+                    authorizationService: viewModel.authorizationService))
+        }
     }
 }
 

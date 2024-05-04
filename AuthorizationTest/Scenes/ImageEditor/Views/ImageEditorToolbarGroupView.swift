@@ -8,21 +8,21 @@ struct ImageEditorToolbarGroupView: View {
     // MARK: - Constants and Variables:
     var action: () -> Void
     
+    // MARK: - UI:
     var body: some View {
-        Button {
-            rotation += UIConstants.ImageEditorToolbarGroupView.rotateDegrees
-        } label: {
-            Image(systemName: Resources.Images.rotate)
-                .font(.system(size: UIConstants.ImageEditorViewController.navbarImageFont))
+        HStack {
+            Button {
+                rotation += UIConstants.ImageEditorToolbarGroupView.rotateDegrees
+            } label: {
+                Image(systemName: Resources.Images.rotate)
+            }
+                        
+            Button {
+                action()
+            } label: {
+                Image(systemName: Resources.Images.camera)
+            }
         }
-        
-        Spacer()
-        
-        Button {
-            action()
-        } label: {
-            Image(systemName: Resources.Images.camera)
-                .font(.system(size: UIConstants.ImageEditorViewController.navbarImageFont))
-        }
+        .font(.system(size: 20))
     }
 }

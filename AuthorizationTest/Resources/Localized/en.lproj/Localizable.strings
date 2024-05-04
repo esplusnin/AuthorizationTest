@@ -25,3 +25,10 @@
 "PasswordResetView.resetPassword" = "Reset password";
 
 "imageEditor.choosePhoto" = "Choose image from library";
+
+"imageDrawing.cancel" = "Выйти";
+"imageDrawing.save" = "Сохранить";
+
+"drawingTextPanel.add" = "Add";
+"drawingTextPanel.cancel" = "Cancel";
+"drawingTextPanel.enterText" = "Enter text";

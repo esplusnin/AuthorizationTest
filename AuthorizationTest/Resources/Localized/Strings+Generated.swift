@@ -26,6 +26,20 @@ internal enum Strings {
     /// Авторизация
     internal static let title = Strings.tr("Localizable", "authorization.title", fallback: "Авторизация")
   }
+  internal enum DrawingTextPanel {
+    /// Добавить
+    internal static let add = Strings.tr("Localizable", "drawingTextPanel.add", fallback: "Добавить")
+    /// Выйти
+    internal static let cancel = Strings.tr("Localizable", "drawingTextPanel.cancel", fallback: "Выйти")
+    /// Введите текст
+    internal static let enterText = Strings.tr("Localizable", "drawingTextPanel.enterText", fallback: "Введите текст")
+  }
+  internal enum ImageDrawing {
+    /// Выйти
+    internal static let cancel = Strings.tr("Localizable", "imageDrawing.cancel", fallback: "Выйти")
+    /// Save
+    internal static let save = Strings.tr("Localizable", "imageDrawing.save", fallback: "Save")
+  }
   internal enum ImageEditor {
     /// Выберите изображение из библиотеки
     internal static let choosePhoto = Strings.tr("Localizable", "imageEditor.choosePhoto", fallback: "Выберите изображение из библиотеки")

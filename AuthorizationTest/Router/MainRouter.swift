@@ -4,7 +4,7 @@ import SwiftUI
 final class MainRouter: ObservableObject {
     
     // MARK: - Constatns and Variables:
-    enum RouterDestination {
+    enum RouterDestination: Hashable {
         case registration
         case authorization
         case imageEditor

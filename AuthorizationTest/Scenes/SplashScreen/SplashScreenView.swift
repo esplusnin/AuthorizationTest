@@ -25,6 +25,7 @@ struct SplashScreenView<ViewModel>: View where ViewModel: SplashScreenViewModelP
                 switch destination {
                 case .registration:
                     let viewModel = RegistrationViewModel(
+                        router: router,
                         authorizationService: authorizationService)
                     RegistrationView(viewModel: viewModel)
                 case .authorization:
