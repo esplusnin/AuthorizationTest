@@ -10,8 +10,10 @@ final class PasswordResetViewModel: PasswordResetViewModelProtocol {
     @Published var email = ""
     @Published var isUnlocked = false
     @Published var isMessageSent = false
+    @Published var showAlert = false
     
     // MARK: - Constants and Variables:
+    private(set) var error: AuthorizationError = .defaultError
     private var cancellable = Set<AnyCancellable>()
     
     // MARK: - Lifecycle:
@@ -23,7 +25,18 @@ final class PasswordResetViewModel: PasswordResetViewModelProtocol {
     // MARK: - Public Methods:
     func resetPassword() {
         Task {
-            try? await authorizationService.resetPassword(with: email)
+            do {
+                try await authorizationService.resetPassword(with: email)
+            } catch {
+                switch error as? AuthorizationError {
+                case .resetPasswordError:
+                    self.error = .resetPasswordError
+                default:
+                    self.error = .defaultError
+                }
+                
+                showAlert.toggle()
+            }
         }
         
         isMessageSent.toggle()

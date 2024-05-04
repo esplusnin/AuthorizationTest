@@ -34,6 +34,20 @@ internal enum Strings {
     /// Введите текст
     internal static let enterText = Strings.tr("Localizable", "drawingTextPanel.enterText", fallback: "Введите текст")
   }
+  internal enum ErrorDescription {
+    /// Не удалось создать аккаунт
+    internal static let createNewAccountError = Strings.tr("Localizable", "errorDescription.createNewAccountError", fallback: "Не удалось создать аккаунт")
+    /// Что - то пошло не так, попробуйте снова
+    internal static let defalt = Strings.tr("Localizable", "errorDescription.defalt", fallback: "Что - то пошло не так, попробуйте снова")
+    /// Не удалось отправить письмо с подтверждением
+    internal static let emailVerificationError = Strings.tr("Localizable", "errorDescription.emailVerificationError", fallback: "Не удалось отправить письмо с подтверждением")
+    /// Не удалось сбросить пароль
+    internal static let resetPasswordError = Strings.tr("Localizable", "errorDescription.resetPasswordError", fallback: "Не удалось сбросить пароль")
+    /// Ошибка авторизации
+    internal static let signInByGoogleError = Strings.tr("Localizable", "errorDescription.signInByGoogleError", fallback: "Ошибка авторизации")
+    /// Ошибка авторизации
+    internal static let signInError = Strings.tr("Localizable", "errorDescription.signInError", fallback: "Ошибка авторизации")
+  }
   internal enum ImageDrawing {
     /// Выйти
     internal static let cancel = Strings.tr("Localizable", "imageDrawing.cancel", fallback: "Выйти")
@@ -41,8 +55,14 @@ internal enum Strings {
     internal static let save = Strings.tr("Localizable", "imageDrawing.save", fallback: "Save")
   }
   internal enum ImageEditor {
+    /// Выйти
+    internal static let cancel = Strings.tr("Localizable", "imageEditor.cancel", fallback: "Выйти")
     /// Выберите изображение из библиотеки
     internal static let choosePhoto = Strings.tr("Localizable", "imageEditor.choosePhoto", fallback: "Выберите изображение из библиотеки")
+    /// Сбросить фильтры
+    internal static let resetFilters = Strings.tr("Localizable", "imageEditor.resetFilters", fallback: "Сбросить фильтры")
+    /// Поделиться
+    internal static let share = Strings.tr("Localizable", "imageEditor.share", fallback: "Поделиться")
   }
   internal enum Registration {
     /// Повторите пароль

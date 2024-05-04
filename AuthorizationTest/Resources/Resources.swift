@@ -15,6 +15,8 @@ enum Resources {
         static let paintpalette = "paintpalette"
         static let turnBackward = "arrow.uturn.backward"
         static let plus = "plus"
+        static let filters = "camera.filters"
+        static let shareLink = "square.and.arrow.up"
     }
     
     enum Identifiers {

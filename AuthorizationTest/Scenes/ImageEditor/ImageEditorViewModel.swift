@@ -22,7 +22,7 @@ final class ImageEditorViewModel: ImageEditorViewModelProtocol {
     
     private let context = CIContext()
     private var beginImage: CIImage?
-    private var currentFilter: CIFilter = .bloom()
+    private var currentFilter: CIFilter?
     
     // MARK: - Lifecycle:
     init() {
@@ -35,22 +35,36 @@ final class ImageEditorViewModel: ImageEditorViewModelProtocol {
         Task {
             await changeLoadingStatus()
             guard let imageData = try await selectedItem?.loadTransferable(type: Data.self),
-                  let inputImage = UIImage(data: imageData) else {
+                  let inputImage = UIImage(data: imageData)?.fixedOrientation else {
                 await changeLoadingStatus()
                 return
             }
             
-            self.imageData = imageData
+            await setup(imageData)
+            
             beginImage = CIImage(image: inputImage)
             
-            currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
+            if currentFilter != nil {
+                currentFilter?.setValue(beginImage, forKey: kCIInputImageKey)
+            } else {
+                let processedImage = Image(uiImage: inputImage)
+                await setup(processedImage)
+            }
+            
             await applyProcessing()
         }
     }
     
-    func applyFilter(_ filter: CIFilter) {
+    func applyFilter(_ filter: CIFilter?) {
         currentFilter = filter
         loadImage()
+    }
+    
+    func updateEdited(_ uiImage: UIImage) {
+        let image = Image(uiImage: uiImage)
+        let data = uiImage.pngData()
+        imageData = data
+        processedImage = image
     }
     
     // MARK: - Private Methods:
@@ -60,18 +74,32 @@ final class ImageEditorViewModel: ImageEditorViewModelProtocol {
     }
     
     @MainActor
+    private func setup(_ imageData: Data) {
+        self.imageData = imageData
+    }
+    
+    @MainActor
+    private func setup(_ processedImage: Image) {
+        self.processedImage = processedImage
+    }
+    
+    @MainActor
     private func applyProcessing() {
         changeLoadingStatus()
 
-        guard let outputImage = currentFilter.outputImage,
-              let cgImage = context.createCGImage(outputImage, from: outputImage.extent) else { return }
-
-        let uiImage = UIImage(cgImage: cgImage)
-        processedImage = Image(uiImage: uiImage)
+        if currentFilter != nil {
+            guard let outputImage = currentFilter?.outputImage,
+                  let cgImage = context.createCGImage(outputImage, from: outputImage.extent) else { return }
+            
+            let uiImage = UIImage(cgImage: cgImage)
+            processedImage = Image(uiImage: uiImage)
+            imageData = uiImage.pngData()
+        }
     }
     
     private func setupSelectedImageObserver() {
         $selectedItem
+            .receive(on: DispatchQueue.main)
             .sink { [weak self] item in
                 guard let self else { return }
                 if item != nil {

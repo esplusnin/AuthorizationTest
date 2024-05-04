@@ -3,14 +3,6 @@ import FirebaseCore
 import FirebaseAuth
 import GoogleSignIn
 
-enum AuthorizationError: Error {
-    case signInByGoogleError
-    case signInError
-    case createNewAccountError
-    case emailVerificationError
-    case resetPasswordError
-}
-
 final class AuthorizationService: ObservableObject {
     
     // MARK: - Private Methods:

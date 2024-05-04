@@ -2,6 +2,7 @@ import SwiftUI
 import PhotosUI
 
 protocol ImageEditorViewModelProtocol: ObservableObject {
+    var isLoading: Bool { get }
     var selectedItem: PhotosPickerItem? { get set }
     var processedImage: Image? { get set }
     var imageData: Data? { get set }
@@ -10,5 +11,6 @@ protocol ImageEditorViewModelProtocol: ObservableObject {
     var totalZoom: Double { get set }
     
     func loadImage()
-    func applyFilter(_ filter: CIFilter)
+    func applyFilter(_ filter: CIFilter?)
+    func updateEdited(_ image: UIImage)
 }

@@ -12,4 +12,12 @@ final class ImageDrawingViewModel: ImageDrawingViewModelProtocol {
     @Published var textBox = TextBox(text: "", isBold: false)
     @Published var textBoxShow = false
     @Published var rect: CGRect = .zero    
+    
+    // MARK: - Constants and Variables:
+    var updateImageAction: (UIImage) -> Void
+    
+    // MARK: - Lifecycle:
+    init(action: @escaping (UIImage) -> Void) {
+        self.updateImageAction = action
+    }
 }

@@ -9,4 +9,5 @@ protocol ImageDrawingViewModelProtocol: ObservableObject {
     var textBox: TextBox { get set }
     var textBoxShow: Bool { get set }
     var rect: CGRect { get set }
+    var updateImageAction: (UIImage) -> Void { get }
 }

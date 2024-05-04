@@ -99,6 +99,7 @@ struct RegistrationView<ViewModel>: View where ViewModel: RegistrationViewModelP
         .onTapGesture {
             isFocused.toggle()
         }
+        .alert(viewModel.error.errorDescription, isPresented: $viewModel.showAlert) {}
         .ignoresSafeArea(.keyboard)
     }
 }

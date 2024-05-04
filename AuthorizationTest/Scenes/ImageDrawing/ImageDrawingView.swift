@@ -65,11 +65,11 @@ struct ImageDrawingView<ViewModel>: View where ViewModel: ImageDrawingViewModelP
         let generatedImage = UIGraphicsGetImageFromCurrentImageContext()
         
         let swiftUIView = ZStack {
-                        Text(viewModel.textBox.text)
-                            .font(.system(size: CGFloat(viewModel.textBox.textSize)))
-                            .bold(viewModel.textBox.isBold)
-                            .foregroundStyle(viewModel.textBox.textColor)
-                            .offset(viewModel.textBox.offset)
+            Text(viewModel.textBox.text)
+                .font(.system(size: CGFloat(viewModel.textBox.textSize)))
+                .bold(viewModel.textBox.isBold)
+                .foregroundStyle(viewModel.textBox.textColor)
+                .offset(viewModel.textBox.offset)
         }
         
         if let controller = UIHostingController(rootView: swiftUIView).view {
@@ -83,6 +83,7 @@ struct ImageDrawingView<ViewModel>: View where ViewModel: ImageDrawingViewModelP
             UIGraphicsEndImageContext()
             
             if let generatedImage {
+                viewModel.updateImageAction(generatedImage)
                 UIImageWriteToSavedPhotosAlbum(generatedImage, nil, nil, nil)
             }
         }
@@ -90,5 +91,5 @@ struct ImageDrawingView<ViewModel>: View where ViewModel: ImageDrawingViewModelP
 }
 
 #Preview {
-    ImageDrawingView(viewModel: ImageDrawingViewModel(), imageData: .constant(Data()))
+    ImageDrawingView(viewModel: ImageDrawingViewModel(action: { _ in }), imageData: .constant(Data()))
 }

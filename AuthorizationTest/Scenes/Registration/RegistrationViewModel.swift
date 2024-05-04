@@ -19,9 +19,11 @@ final class RegistrationViewModel: RegistrationViewModelProtocol {
     @Published var isPasswordConfirmed = false
     @Published var isReadyToCreateAccount = false
     @Published var isLoading = false
+    @Published var showAlert = false
     
     // MARK: - Constatns and Variables:
     private var cancellable = Set<AnyCancellable>()
+    private(set) var error: AuthorizationError = .defaultError
     
     // MARK: - Lifecycle:
     init(router: MainRouter, authorizationService: AuthorizationServiceProtocol) {
@@ -42,7 +44,14 @@ final class RegistrationViewModel: RegistrationViewModelProtocol {
                 saveNew(userInfo)
                 await router?.goTo(.imageEditor)
             } catch {
-                print(error.localizedDescription)
+                switch error as? AuthorizationError {
+                case.createNewAccountError:
+                    self.error = .createNewAccountError
+                default:
+                    self.error = .defaultError
+                }
+                
+                showAlert.toggle()
             }
             
             await changeIsLoadingState()
@@ -58,7 +67,12 @@ final class RegistrationViewModel: RegistrationViewModelProtocol {
                 saveNew(userInfo)
                 await router?.goTo(.imageEditor)
             } catch {
-                print(error.localizedDescription)
+                switch error as? AuthorizationError {
+                case.signInByGoogleError:
+                    self.error = .createNewAccountError
+                default:
+                    self.error = .defaultError
+                }
             }
             
             await changeIsLoadingState()

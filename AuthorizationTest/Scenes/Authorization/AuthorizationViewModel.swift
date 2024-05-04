@@ -14,9 +14,11 @@ final class AuthorizationViewModel: AuthorizationViewModelProtocol {
     @Published var password = ""
     @Published var isReadyToSignIn = false
     @Published var isLoading = false
+    @Published var showAlert = false
     
     // MARK: - Constants and Variables:
     private var cancellable = Set<AnyCancellable>()
+    private(set) var error: AuthorizationError = .defaultError
     
     // MARK: - Lifecycle:
     init(router: MainRouter, keyChainStorage: KeyChainStorage, authorizationService: AuthorizationServiceProtocol) {
@@ -36,7 +38,14 @@ final class AuthorizationViewModel: AuthorizationViewModelProtocol {
                 saveNew(userInfo)
                 await router?.goTo(.imageEditor)
             } catch {
-                print(error.localizedDescription)
+                switch error as? AuthorizationError {
+                case .signInError:
+                    self.error = .signInError
+                default:
+                    self.error = .defaultError
+                }
+                
+                showAlert.toggle()
             }
             
             await changeLoadingStatus()

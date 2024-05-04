@@ -6,6 +6,8 @@ protocol AuthorizationViewModelProtocol: ObservableObject {
     var password: String { get set }
     var isReadyToSignIn: Bool { get }
     var isLoading: Bool { get }
+    var showAlert: Bool { get set }
+    var error: AuthorizationError { get }
     
     func signIn()
 }

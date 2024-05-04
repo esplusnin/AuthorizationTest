@@ -71,6 +71,8 @@
 		7E4B1D722BE54376005E5113 /* TextAdditionalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4B1D712BE54376005E5113 /* TextAdditionalView.swift */; };
 		7E4B1D742BE6251C005E5113 /* TextBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4B1D732BE6251C005E5113 /* TextBoxView.swift */; };
 		7E4B1D762BE62ADE005E5113 /* DrawingTextPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4B1D752BE62ADE005E5113 /* DrawingTextPanelView.swift */; };
+		7E4B1D782BE63B29005E5113 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4B1D772BE63B29005E5113 /* Errors.swift */; };
+		7E4B1D7A2BE6487E005E5113 /* UIImage + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4B1D792BE6487E005E5113 /* UIImage + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -128,6 +130,8 @@
 		7E4B1D712BE54376005E5113 /* TextAdditionalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAdditionalView.swift; sourceTree = "<group>"; };
 		7E4B1D732BE6251C005E5113 /* TextBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBoxView.swift; sourceTree = "<group>"; };
 		7E4B1D752BE62ADE005E5113 /* DrawingTextPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingTextPanelView.swift; sourceTree = "<group>"; };
+		7E4B1D772BE63B29005E5113 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		7E4B1D792BE6487E005E5113 /* UIImage + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +211,7 @@
 			children = (
 				7E3E9E3B2BE36C71003BE33E /* UserDTO.swift */,
 				7E4B1D6A2BE525C5005E5113 /* TextBox.swift */,
+				7E4B1D772BE63B29005E5113 /* Errors.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -396,6 +401,7 @@
 			isa = PBXGroup;
 			children = (
 				7E22224B2BE2A84500D27EBD /* Font + Extension.swift */,
+				7E4B1D792BE6487E005E5113 /* UIImage + Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -594,6 +600,7 @@
 				7E491A052BE234AF00829B61 /* InputTextField.swift in Sources */,
 				7E3E9E632BE40C7A003BE33E /* ImageEditorViewModelProtocol.swift in Sources */,
 				7E4B1D742BE6251C005E5113 /* TextBoxView.swift in Sources */,
+				7E4B1D782BE63B29005E5113 /* Errors.swift in Sources */,
 				7E3E9E792BE4AEA1003BE33E /* SplashScreenViewModelProtocol.swift in Sources */,
 				7E4919EE2BE22FEB00829B61 /* AuthorizationTestApp.swift in Sources */,
 				7E3E9E532BE3A7A5003BE33E /* AuthorizationViewModelProtocol.swift in Sources */,
@@ -613,6 +620,7 @@
 				7E4B1D602BE4C9F0005E5113 /* ImageEditorToolbarGroupView.swift in Sources */,
 				7E3E9E3F2BE373AC003BE33E /* AuthorizationView.swift in Sources */,
 				7E3E9E362BE2B51C003BE33E /* AuthorizationService.swift in Sources */,
+				7E4B1D7A2BE6487E005E5113 /* UIImage + Extension.swift in Sources */,
 				7E3E9E5E2BE3AE47003BE33E /* PasswordResetViewModelProtocol.swift in Sources */,
 				7E4B1D642BE4F395005E5113 /* ImageDrawingView.swift in Sources */,
 				7E2222082BE2543100D27EBD /* AppDelegate.swift in Sources */,

@@ -50,20 +50,25 @@ struct ImageEditorView<ViewModel>: View where ViewModel: ImageEditorViewModelPro
                         Button {
                             showFilters.toggle()
                         } label: {
-                            Image(systemName: "camera.filters")
+                            Image(systemName: Resources.Images.filters)
                                 .font(.system(size: UIConstants.ImageEditorViewController.navbarImageFont))
                         }
                         
                         Spacer()
                         
                         ShareLink(item: image,
-                                  preview: SharePreview("billede", image: image)) {
-                            Label("Share Image", systemImage: "square.and.arrow.up")
+                                  preview: SharePreview("", image: image)) {
+                            Label(Strings.ImageEditor.share, 
+                                  systemImage: Resources.Images.shareLink)
                         }
                     }
                 }
             }
             .padding(.horizontal)
+            
+            if viewModel.isLoading {
+                LoaderView()
+            }
         }
         .navigationBarBackButtonHidden()
         .navigationBarTitleDisplayMode(.inline)
@@ -72,7 +77,7 @@ struct ImageEditorView<ViewModel>: View where ViewModel: ImageEditorViewModelPro
                 Button {
                     showImageDrawer.toggle()
                 } label: {
-                    Image(systemName: "paintpalette")
+                    Image(systemName: Resources.Images.paintpalette)
                 }
             }
             
@@ -86,7 +91,11 @@ struct ImageEditorView<ViewModel>: View where ViewModel: ImageEditorViewModelPro
             AccessCameraView(selectedImage: $viewModel.processedImage)
         }
         .fullScreenCover(isPresented: $showImageDrawer) {
-            ImageDrawingView(viewModel: ImageDrawingViewModel(), imageData: $viewModel.imageData)
+            let imageViewModel = ImageDrawingViewModel { image in
+                viewModel.updateEdited(image)
+            }
+            
+            ImageDrawingView(viewModel: imageViewModel, imageData: $viewModel.imageData)
         }
         .confirmationDialog("Filters", isPresented: $showFilters) {
             Button("Crystallize") { viewModel.applyFilter(.crystallize()) }
@@ -99,7 +108,8 @@ struct ImageEditorView<ViewModel>: View where ViewModel: ImageEditorViewModelPro
             Button("Sepia Tone") { viewModel.applyFilter(.sepiaTone()) }
             Button("Unsharp Mask") { viewModel.applyFilter(.unsharpMask()) }
             Button("Vignette") { viewModel.applyFilter(.vignette()) }
-            Button("Cancel", role: .cancel) {}
+            Button(Strings.ImageEditor.resetFilters) { viewModel.applyFilter(nil) }
+            Button(Strings.ImageEditor.cancel, role: .cancel) {}
         }
     }
 }

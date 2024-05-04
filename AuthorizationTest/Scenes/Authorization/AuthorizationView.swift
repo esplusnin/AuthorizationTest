@@ -66,6 +66,7 @@ struct AuthorizationView<ViewModel>: View where ViewModel: AuthorizationViewMode
         .onTapGesture {
             isFocused.toggle()
         }
+        .alert(viewModel.error.errorDescription, isPresented: $viewModel.showAlert) {}
         .sheet(isPresented: $isSheetPresented) {
             PasswordResetView(
                 viewModel: PasswordResetViewModel(

@@ -10,6 +10,8 @@ protocol RegistrationViewModelProtocol: ObservableObject {
     var isPasswordCapitalLetterValidated: Bool { get }
     var isPasswordConfirmed: Bool { get }
     var isLoading: Bool { get }
+    var showAlert: Bool { get set }
+    var error: AuthorizationError { get }
     
     func createNewAccount()
     func signInWithGoogle()

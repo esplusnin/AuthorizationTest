@@ -1,3 +1,10 @@
+"errorDescription.signInByGoogleError" = "Ошибка авторизации";
+"errorDescription.signInError" = "Ошибка авторизации";
+"errorDescription.createNewAccountError" = "Не удалось создать аккаунт";
+"errorDescription.emailVerificationError" = "Не удалось отправить письмо с подтверждением";
+"errorDescription.resetPasswordError" = "Не удалось сбросить пароль";
+"errorDescription.defalt" = "Что - то пошло не так, попробуйте снова";
+
 "splashScreen.title" = "AuthorizationTetst";
 
 "registration.title" = "Регистрация";
@@ -25,6 +32,9 @@
 "PasswordResetView.resetPassword" = "Сбросить пароль";
 
 "imageEditor.choosePhoto" = "Выберите изображение из библиотеки";
+"imageEditor.share" = "Поделиться";
+"imageEditor.resetFilters" = "Сбросить фильтры";
+"imageEditor.cancel" = "Выйти";
 
 "imageDrawing.cancel" = "Выйти";
 "imageDrawing.save" = "Save";

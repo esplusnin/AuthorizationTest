@@ -1,3 +1,10 @@
+"errorDescription.signInByGoogleError" = "Authorization error";
+"errorDescription.signInError" = "Authorization error";
+"errorDescription.createNewAccountError" = "Account didn't create";
+"errorDescription.emailVerificationError" = "Confirmation letter didn't send";
+"errorDescription.resetPasswordError" = "Password wasn't reseted";
+"errorDescription.defalt" = "Something went wrong, try to repeat";
+
 "splashScreen.title" = "AuthorizationTetst";
 
 "registration.title" = "Create an account";
@@ -25,6 +32,9 @@
 "PasswordResetView.resetPassword" = "Reset password";
 
 "imageEditor.choosePhoto" = "Choose image from library";
+"imageEditor.share" = "Share";
+"imageEditor.resetFilters" = "Reset filters";
+"imageEditor.cancel" = "Cancel";
 
 "imageDrawing.cancel" = "Выйти";
 "imageDrawing.save" = "Сохранить";
