@@ -20,7 +20,7 @@
 - Зависимости: 
 + Firebase
 + GoogleSignIn
-+ KeyChainAcces
++ KeyChainAccess
 
 ### :telescope: Стек технологий:
 + Swift
